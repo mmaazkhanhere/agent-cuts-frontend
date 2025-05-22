@@ -1,3 +1,4 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -13,7 +14,7 @@
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
 
-    --primary: 222.2 47.4% 11.2%;
+    --primary: 270 100% 70%;
     --primary-foreground: 210 40% 98%;
 
     --secondary: 210 40% 96.1%;
@@ -30,29 +31,22 @@
 
     --border: 214.3 31.8% 91.4%;
     --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --ring: 270 100% 70%;
 
     --radius: 0.5rem;
 
     --sidebar-background: 0 0% 98%;
-
     --sidebar-foreground: 240 5.3% 26.1%;
-
     --sidebar-primary: 240 5.9% 10%;
-
     --sidebar-primary-foreground: 0 0% 98%;
-
     --sidebar-accent: 240 4.8% 95.9%;
-
     --sidebar-accent-foreground: 240 5.9% 10%;
-
     --sidebar-border: 220 13% 91%;
-
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
+    --background: 0 0% 7%;
     --foreground: 210 40% 98%;
 
     --card: 222.2 84% 4.9%;
@@ -61,7 +55,7 @@
     --popover: 222.2 84% 4.9%;
     --popover-foreground: 210 40% 98%;
 
-    --primary: 210 40% 98%;
+    --primary: 270 100% 70%;
     --primary-foreground: 222.2 47.4% 11.2%;
 
     --secondary: 217.2 32.6% 17.5%;
@@ -96,6 +90,32 @@
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-clipgenius-dark-bg text-foreground;
+  }
+}
+
+@layer components {
+  .gradient-text {
+    @apply bg-gradient-purple bg-clip-text text-transparent;
+  }
+  
+  .glassmorphism {
+    @apply bg-black/20 backdrop-blur-md border border-white/10;
+  }
+
+  .upload-dropzone {
+    @apply border-2 border-dashed border-clipgenius-dark-border rounded-lg p-10 
+    flex flex-col items-center justify-center
+    transition-all duration-300
+    hover:border-clipgenius-purple/50 hover:bg-clipgenius-purple/5;
+  }
+
+  .upload-dropzone.active {
+    @apply border-clipgenius-purple bg-clipgenius-purple/10;
+  }
+  
+  .clip-card {
+    @apply bg-clipgenius-dark-card rounded-lg border border-clipgenius-dark-border p-4
+    transition-all duration-300 hover:border-clipgenius-purple/50;
   }
 }
