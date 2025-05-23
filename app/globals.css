@@ -1,0 +1,123 @@
+@import "tailwindcss";
+
+:root {
+
+  --background: #121212;
+  --foreground: #fafafa;
+
+  --card: #121212;
+  --card-foreground: #fafafa;
+
+  --popover: #121212;
+  --popover-foreground: #fafafa;
+
+  --primary: #BB86FC;
+  --primary-foreground: #121212;
+
+  --secondary: #e8f2fc;
+  --secondary-foreground: #0f172a;
+
+  --muted: #262626;
+  --muted-foreground: #9BA6B7;
+  --border: #262626;
+  --input: #262626;
+  --ring: #BB86FC;
+  --purple: #b964ff;
+  --purple-light: #d690ff;
+  --purple-dark: #8340c2;
+  --dark-bg: #121212;
+  --dark-card: #1e1e1e;
+  --dark-border: #333333;
+
+}
+
+@theme {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-primary: var(--primary);
+  --color-muted: var(--muted);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --color-purple: var(--purple);
+  --color-clipgenius-purple: var(--purple);
+  --color-clipgenius-purple-light: var(--purple-light);
+  --color-clipgenius-purple-dark: var(--purple-dark);
+  --color-clipgenius-dark-bg: var(--dark-bg);
+  --color-clipgenius-dark-card: var(--dark-card);
+  --color-clipgenius-dark-border: var(--dark-border);
+  /* Background gradients */
+  --background-image-gradient-purple: linear-gradient(135deg, #b964ff 0%, #8340c2 100%);
+
+}
+
+@layer utilities {
+  .gradient-text {
+    background: linear-gradient(135deg, #b964ff 0%, #8340c2 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+  }
+
+  .glassmorphism {
+    background-color: rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .upload-dropzone {
+    border: 2px dashed #333333;
+    border-radius: 8px;
+    padding: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: all 300ms;
+  }
+
+  .upload-dropzone:hover {
+    border-color: rgba(185, 100, 255, 0.5);
+    background-color: rgba(185, 100, 255, 0.05);
+  }
+
+  .upload-dropzone.active {
+    border-color: #b964ff;
+    background-color: rgba(185, 100, 255, 0.1);
+  }
+
+  .clip-card {
+    background-color: #1e1e1e;
+    border-radius: 8px;
+    border: 1px solid #333333;
+    padding: 1rem;
+    transition: all 300ms;
+  }
+
+  .clip-card:hover {
+    border-color: rgba(185, 100, 255, 0.5);
+  }
+}
+
+/* @media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+} */
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
