@@ -2,13 +2,11 @@ import React from "react";
 
 const Footer = () => {
   return (
-    <footer className="bg-clipgenius-dark-bg py-12">
-      <div className="container px-4 mx-auto">
-        <div className="border-t border-clipgenius-dark-border pt-8">
-          <p className="text-white/50 text-center">
-            © {new Date().getFullYear()} ClipGenius. All rights reserved.
-          </p>
-        </div>
+    <footer className="py-12 px-6 bg-gray-900 border-t border-gray-800">
+      <div className="max-w-7xl mx-auto text-center">
+        <p className="text-gray-500 text-sm">
+          © {new Date().getFullYear()} ClipGenius. All rights reserved.
+        </p>
       </div>
     </footer>
   );
