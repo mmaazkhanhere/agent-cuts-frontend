@@ -1,183 +1,139 @@
 @import "tailwindcss";
 
-:root {
-
-  --background: #ffffff;
-  --foreground: #020617;
-
-  --card: #ffffff;
-  --card-foreground: #020617;
-
-  --popover: #ffffff;
-  --popover-foreground: #020617;
-
-  --primary: #b661ff;
-  --primary-foreground: #f8fafc;
-
-  --secondary: #f1f5f9;
-  --secondary-foreground: #0f172a;
-
-  --muted: #f1f5f9;
-  --muted-foreground: #64748b;
-
-  --accent: #f1f5f9;
-  --accent-foreground: #0f172a;
-
-  --destructive: #dc2626;
-  --destructive-foreground: #f8fafc;
-
-  --border: #e2e8f0;
-  --input: #e2e8f0;
-  --ring: #b661ff;
-
-  --sidebar-background: #fafafa;
-  --sidebar-foreground: #434449;
-  --sidebar-primary: #1a1a1a;
-  --sidebar-primary-foreground: #fafafa;
-  --sidebar-accent: #f5f5f6;
-  --sidebar-accent-foreground: #1a1a1a;
-  --sidebar-border: #e8e8e8;
-
-
-  --clipgenius-purple: #b964ff;
-  --clipgenius-purple-light: #d690ff;
-  --clipgenius-purple-dark: #8340c2;
-  --clipgenius-dark-bg: #121212;
-  --clipgenius-dark-card: #1e1e1e;
-  --clipgenius-dark-border: #333333;
-
-
-}
-
-.dark {
-  --background: #121212;
-  --foreground: #f8fafc;
-
-  --card: #020617;
-  --card-foreground: #f8fafc;
-
-  --popover: #020617;
-  --popover-foreground: #f8fafc;
-
-  --primary: #b661ff;
-  --primary-foreground: #0f172a;
-
-  --secondary: #1e293b;
-  --secondary-foreground: #f8fafc;
-
-  --muted: #1e293b;
-  --muted-foreground: #94a3b7;
-
-  --accent: #1e293b;
-  --accent-foreground: #f8fafc;
-
-  --destructive: #7f1d1d;
-  --destructive-foreground: #f8fafc;
-
-  --border: #1e293b;
-  --input: #1e293b;
-  --ring: #d9d9d9;
-
-  --sidebar-background: #1a1a1a;
-  --sidebar-foreground: #f5f5f6;
-  --sidebar-primary: #2563eb;
-  --sidebar-primary-foreground: #ffffff;
-  --sidebar-accent: #282828;
-  --sidebar-accent-foreground: #f5f5f6;
-  --sidebar-border: #282828;
-}
-
 @theme {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --color-primary: var(--primary);
-  --color-muted: var(--muted);
-  --color-card: var(--card);
-  --color-card-foreground: var(--card-foreground);
-  --color-popover: var(--popover);
-  --color-popover-foreground: var(--popover-foreground);
-  --color-primary-foreground: var(--primary-foreground);
-  --color-secondary: var(--secondary);
-  --color-secondary-foreground: var(--secondary-foreground);
-  --color-muted-foreground: var(--muted-foreground);
-  --color-accent: var(--accent);
-  --color-accent-foreground: var(--accent-foreground);
-  --color-destructive: var(--destructive);
-  --color-destructive-foreground: var(--destructive-foreground);
-  --color-sidebar-background: var(--sidebar-background);
-  --color-sidebar-foreground: var(--sidebar-foreground);
-  --color-sidebar-primary: var(--idebar-primary);
-  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
-  --color-sidebar-accent: var(--sidebar-accent);
-  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
-  --color-sidebar-border: var(--sidebar-border);
-  --color-sidebar-ring: var(--sidebar-ring);
-  --color-border: var(--border);
-  --color-input: var(--input);
-  --color-ring: var(--ring);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-  --color-purple: var(--clipgenius-purple);
-  --color-clipgenius-purple: var(--clipgenius-purple);
-  --color-clipgenius-purple-light: var(--clipgenius-purple-light);
-  --color-clipgenius-purple-dark: var(--clipgenius-purple-dark);
-  --color-clipgenius-dark-bg: var(--clipgenius-dark-bg);
-  --color-clipgenius-dark-card: var(--clipgenius-dark-card);
-  --color-clipgenius-dark-border: var(--clipgenius-dark-border);
+  /* Color System */
+  --color-border: hsl(217.2 32.6% 17.5%);
+  --color-input: hsl(217.2 32.6% 17.5%);
+  --color-ring: hsl(180 100% 25%);
+  --color-background: hsl(222.2 84% 4.9%);
+  --color-foreground: hsl(210 40% 98%);
 
-  /* Background gradients */
-  --background-image-gradient-purple: linear-gradient(135deg, var(--clipgenius-purple) 0%, var(--clipgenius-purple-dark) 100%);
+  /* Primary Colors */
+  --color-primary: #008080;
+  --color-primary-foreground: #ffffff;
+  --color-primary-50: #f0fdfa;
+  --color-primary-100: #ccfbf1;
+  --color-primary-200: #99f6e4;
+  --color-primary-300: #5eead4;
+  --color-primary-400: #2dd4bf;
+  --color-primary-500: #008080;
+  --color-primary-600: #0d9488;
+  --color-primary-700: #0f766e;
+  --color-primary-800: #115e59;
+  --color-primary-900: #134e4a;
 
-  /* Border radius */
+  /* Component Colors */
+  --color-secondary: hsl(217.2 32.6% 17.5%);
+  --color-secondary-foreground: hsl(210 40% 98%);
+  --color-destructive: hsl(0 62.8% 30.6%);
+  --color-destructive-foreground: hsl(210 40% 98%);
+  --color-muted: hsl(217.2 32.6% 17.5%);
+  --color-muted-foreground: hsl(215 20.2% 65.1%);
+  --color-accent: hsl(217.2 32.6% 17.5%);
+  --color-accent-foreground: hsl(210 40% 98%);
+  --color-popover: hsl(222.2 84% 4.9%);
+  --color-popover-foreground: hsl(210 40% 98%);
+  --color-card: hsl(222.2 84% 4.9%);
+  --color-card-foreground: hsl(210 40% 98%);
+
+  /* Teal Color Palette */
+  --color-teal-50: #f0fdfa;
+  --color-teal-100: #ccfbf1;
+  --color-teal-200: #99f6e4;
+  --color-teal-300: #5eead4;
+  --color-teal-400: #2dd4bf;
+  --color-teal-500: #008080;
+  --color-teal-600: #0d9488;
+  --color-teal-700: #0f766e;
+  --color-teal-800: #115e59;
+  --color-teal-900: #134e4a;
+
+  /* Border Radius */
   --radius: 0.5rem;
-  --border-radius-lg: var(--radius);
-  --border-radius-md: calc(var(--radius) - 2px);
-  --border-radius-sm: calc(var(--radius) - 4px);
-
-  /* Keyframes */
-  --keyframes-accordion-down: accordion-down;
-  --keyframes-accordion-up: accordion-up;
-  --keyframes-fade-in: fade-in;
-  --keyframes-fade-out: fade-out;
-  --keyframes-slide-up: slide-up;
-  --keyframes-pulse-light: pulse-light;
-  --keyframes-upload-appear: upload-appear;
+  --radius-lg: var(--radius);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-sm: calc(var(--radius) - 4px);
 
   /* Animations */
   --animate-accordion-down: accordion-down 0.2s ease-out;
   --animate-accordion-up: accordion-up 0.2s ease-out;
-  --animate-fade-in: fade-in 0.3s ease-out;
-  --animate-fade-out: fade-out 0.3s ease-out;
-  --animate-slide-up: slide-up 0.5s ease-out;
-  --animate-pulse-light: pulse-light 2s infinite;
-  --animate-upload-appear: upload-appear 0.4s ease-out;
-
+  --animate-fade-in: fade-in 0.6s ease-out;
+  --animate-glow: glow 2s ease-in-out infinite;
 }
 
+/* Keyframes */
+@keyframes accordion-down {
+  from {
+    height: 0;
+  }
+
+  to {
+    height: var(--radix-accordion-content-height);
+  }
+}
+
+@keyframes accordion-up {
+  from {
+    height: var(--radix-accordion-content-height);
+  }
+
+  to {
+    height: 0;
+  }
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes glow {
+
+  0%,
+  100% {
+    box-shadow: 0 0 20px rgba(0, 128, 128, 0.3);
+  }
+
+  50% {
+    box-shadow: 0 0 30px rgba(0, 128, 128, 0.6);
+  }
+}
+
+/* Base Styles */
 @layer base {
   body {
-    background: var(--clipgenius-dark-bg);
-    color: var(--foreground);
+    background: var(--color-background);
+    color: var(--color-foreground);
   }
-
 }
 
+/* Utility Classes */
 @layer utilities {
-  .gradient-text {
-    background: linear-gradient(135deg, var(--clipgenius-purple) 0%, var(--clipgenius-purple-dark) 100%);
-    background-clip: text;
-    -webkit-background-clip: text;
-    color: transparent;
+  .text-glow {
+    text-shadow: 0 0 10px rgba(0, 128, 128, 0.5);
   }
 
-  .glassmorphism {
-    background-color: rgba(0, 0, 0, 0.2);
-    backdrop-filter: blur(12px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+  .bg-dark-gradient {
+    background: linear-gradient(135deg, #1f2937 0%, #111827 50%, #0f172a 100%);
+  }
+
+  .bg-gradient-radial {
+    background-image: radial-gradient(var(--tw-gradient-stops));
+  }
+
+  .bg-teal-gradient {
+    background-image: linear-gradient(135deg, #008080 0%, #0d9488 50%, #134e4a 100%);
   }
 
   .upload-dropzone {
-    border: 2px dashed var(--dark-border);
+    border: 2px dashed var(--color-border);
     border-radius: 8px;
     padding: 2.5rem;
     display: flex;
@@ -188,108 +144,30 @@
   }
 
   .upload-dropzone:hover {
-    border-color: rgba(185, 100, 255, 0.5);
-    background-color: rgba(185, 100, 255, 0.05);
+    border-color: rgba(0, 128, 128, 0.5);
+    background-color: rgba(0, 128, 128, 0.05);
   }
 
   .upload-dropzone.active {
-    border-color: var(--clipgenius-purple);
-    background-color: rgba(185, 100, 255, 0.1);
+    border-color: var(--primary);
+    background-color: rgba(0, 128, 128, 0.1);
   }
 
   .clip-card {
-    background-color: var(--clipgenius-dark-card);
+    background-color: var(--card);
     border-radius: 8px;
-    border: 1px solid var(--clipgenius-dark-border);
+    border: 1px solid var(--border);
     padding: 1rem;
     transition: all 300ms;
   }
 
   .clip-card:hover {
-    border-color: rgba(185, 100, 255, 0.5);
+    border-color: rgba(0, 128, 128, 0.5);
   }
 
-  /* Define the keyframes */
-  @keyframes accordion-down {
-    from {
-      height: 0;
-    }
-
-    to {
-      height: var(--radix-accordion-content-height);
-    }
-  }
-
-  @keyframes accordion-up {
-    from {
-      height: var(--radix-accordion-content-height);
-    }
-
-    to {
-      height: 0;
-    }
-  }
-
-  @keyframes fade-in {
-    0% {
-      opacity: 0;
-    }
-
-    100% {
-      opacity: 1;
-    }
-  }
-
-  @keyframes fade-out {
-    0% {
-      opacity: 1;
-    }
-
-    100% {
-      opacity: 0;
-    }
-  }
-
-  @keyframes slide-up {
-    0% {
-      transform: translateY(10px);
-      opacity: 0;
-    }
-
-    100% {
-      transform: translateY(0);
-      opacity: 1;
-    }
-  }
-
-  @keyframes pulse-light {
-
-    0%,
-    100% {
-      opacity: 1;
-    }
-
-    50% {
-      opacity: 0.7;
-    }
-  }
-
-  @keyframes upload-appear {
-    0% {
-      transform: scale(0.95);
-      opacity: 0;
-    }
-
-    100% {
-      transform: scale(1);
-      opacity: 1;
-    }
+  .toaster {
+    --normal-bg: var(--popover);
+    --normal-text: var(--popover-foreground);
+    --normal-border: var(--border);
   }
 }
-
-/* @media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-} */
