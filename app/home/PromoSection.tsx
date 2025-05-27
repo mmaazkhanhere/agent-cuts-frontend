@@ -4,7 +4,7 @@ import { ArrowRight } from "lucide-react";
 import { Button } from "../components/ui/button";
 const PromoSection = () => {
   return (
-    <section className="py-20 bg-teal-gradient">
+    <section className="py-20 bg-gradient-to-r from-teal-600 via-teal-700 to-teal-800">
       <div className="container px-4 mx-auto text-center">
         <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
           Ready to Transform Your Video Content?
@@ -16,8 +16,8 @@ const PromoSection = () => {
         <Button
           asChild
           size="lg"
-          variant="link"
-          className="font-medium bg-white hover:bg-white/80 text-lg"
+          variant="secondary"
+          className="ffont-medium text-lg bg-white text-teal-800 hover:bg-gray-100"
         >
           <Link href="/upload">
             Try ClipGenius Now <ArrowRight className="ml-2 h-5 w-5" />
