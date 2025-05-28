@@ -10,24 +10,24 @@ interface Step {
 
 const steps: Step[] = [
   {
-    icon: <Upload className="h-8 w-8 text-clipgenius-teal" />,
+    icon: <Upload className="h-8 w-8 text-teal-400" />,
     title: "Upload",
     description: "Upload your long-form video content to our secure platform.",
   },
   {
-    icon: <Cpu className="h-8 w-8 text-clipgenius-teal" />,
+    icon: <Cpu className="h-8 w-8 text-teal-400" />,
     title: "AI Analysis",
     description:
       "Our AI analyzes your content for the most engaging and viral-worthy moments.",
   },
   {
-    icon: <Scissors className="h-8 w-8 text-clipgenius-teal" />,
+    icon: <Scissors className="h-8 w-8 text-teal-400" />,
     title: "Clip Generation",
     description:
       "We automatically generate and optimize clips for social media platforms.",
   },
   {
-    icon: <Download className="h-8 w-8 text-clipgenius-teal" />,
+    icon: <Download className="h-8 w-8 text-teal-400" />,
     title: "Download & Share",
     description:
       "Download your ready-to-share clips and post them to grow your audience.",
@@ -53,7 +53,7 @@ const HowItWorks = () => {
           {steps.map((step, index) => (
             <div key={index} className="flex flex-col items-center text-center">
               <div className="relative mb-8">
-                <div className="w-20 h-20 text-teal-400 rounded-full bg-teal-500/20 flex items-center justify-center">
+                <div className="w-20 h-20 rounded-full bg-teal-500/20 flex items-center justify-center">
                   {step.icon}
                 </div>
                 {index < steps.length - 1 && (
