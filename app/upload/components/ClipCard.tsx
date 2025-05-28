@@ -14,8 +14,16 @@ const ClipCard: React.FC<{ clip: Clip }> = ({ clip }) => {
   };
 
   const handleDownload = () => {
-    toast.info("Download initiated", {
-      description: "Your clip is being prepared for download.",
+    // Create a temporary anchor element to trigger download
+    const link = document.createElement("a");
+    link.href = clip.url;
+    link.download = `${clip.title}.mp4`; // Use clip title as filename
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+
+    toast.success("Download initiated", {
+      description: "Your clip is being downloaded.",
     });
   };
 
@@ -29,7 +37,7 @@ const ClipCard: React.FC<{ clip: Clip }> = ({ clip }) => {
     <div className="bg-gray-800 border-gray-700 p-4 rounded transition duration-200 mt-4">
       <div className="relative mb-3 overflow-hidden rounded-md aspect-video group">
         <img
-          src={clip.thumbnailUrl}
+          src={clip.thumbnail}
           alt={clip.title}
           className="w-full h-full object-cover transition-transform group-hover:scale-105"
         />
@@ -43,6 +51,15 @@ const ClipCard: React.FC<{ clip: Clip }> = ({ clip }) => {
             <Play className="h-5 w-5" />
           </Button>
         </div>
+        <video
+          src={clip.url}
+          poster={clip.thumbnail}
+          controls
+          className="w-full h-full object-cover rounded-md"
+          preload="metadata"
+        >
+          Your browser does not support the video tag.
+        </video>
         <div className="absolute bottom-2 right-2 bg-black/80 px-2 py-1 rounded text-xs text-white">
           {clip.duration}
         </div>
@@ -70,11 +87,13 @@ const ClipCard: React.FC<{ clip: Clip }> = ({ clip }) => {
           </div>
         </div>
 
-        <div className="flex flex-wrap gap-1 mt-2">
+        <p className="text-gray-400 text-sm my-4">{clip.description}</p>
+
+        <div className="flex flex-wrap gap-1 py-2">
           {clip.tags.map((tag, index) => (
             <span
               key={index}
-              className="px-2 py-0.5 bg-background text-gray-300 rounded-full text-xs"
+              className="px-3 py-1 bg-background text-gray-300 rounded-full text-xs"
             >
               {tag}
             </span>

@@ -30,28 +30,37 @@ const FileProcessingPipeline = () => {
       id: "clip1",
       title: "Top 5 AI Predictions That Will Transform The Tech Industry",
       duration: "0:58",
-      thumbnailUrl:
+      url: "C:/Users/User/Downloads/videoplayback.mp4",
+      thumbnail:
         "https://images.unsplash.com/photo-1633412802994-5c058f151b66?q=80&w=2070&auto=format&fit=crop",
       viralityScore: 8.7,
+      description:
+        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+      tags: ["AI", "Tech", "Predictions"],
+    },
+    {
+      id: "clip2",
+      title: "Top 5 AI Predictions That Will Transform The Tech Industry",
+      duration: "0:58",
+      url: "C:/Users/User/Downloads/videoplayback.mp4",
+      thumbnail:
+        "https://images.unsplash.com/photo-1633412802994-5c058f151b66?q=80&w=2070&auto=format&fit=crop",
+      viralityScore: 8.7,
+      description:
+        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
       tags: ["AI", "Tech", "Predictions"],
     },
     {
       id: "clip3",
       title: "Top 5 AI Predictions That Will Transform The Tech Industry",
       duration: "0:58",
-      thumbnailUrl:
+      url: "C:/Users/User/Downloads/videoplayback.mp4",
+      thumbnail:
         "https://images.unsplash.com/photo-1633412802994-5c058f151b66?q=80&w=2070&auto=format&fit=crop",
       viralityScore: 8.7,
+      description:
+        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
       tags: ["AI", "Tech", "Predictions"],
-    },
-    {
-      id: "clip2",
-      title: "Why Machine Learning is Changing Everything in 2025",
-      duration: "1:15",
-      thumbnailUrl:
-        "https://images.unsplash.com/photo-1639318853588-fd36df8c547a?q=80&w=1778&auto=format&fit=crop",
-      viralityScore: 7.5,
-      tags: ["ML", "Future Tech", "Analysis"],
     },
   ];
 
