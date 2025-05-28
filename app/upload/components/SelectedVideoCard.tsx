@@ -1,3 +1,4 @@
+import React, { useEffect, useState } from "react";
 import {
   Card,
   CardHeader,
@@ -5,7 +6,7 @@ import {
   CardContent,
 } from "../../components/ui/card";
 import { Button } from "../../components/ui/button";
-import { Video, RotateCcw } from "lucide-react";
+import { RotateCcw } from "lucide-react";
 
 interface SelectedVideoCardProps {
   selectedFile: File | null;
@@ -16,17 +17,44 @@ export const SelectedVideoCard = ({
   selectedFile,
   resetUpload,
 }: SelectedVideoCardProps) => {
+  const [videoUrl, setVideoUrl] = useState<string | null>(null);
+
+  useEffect(() => {
+    if (selectedFile) {
+      const url = URL.createObjectURL(selectedFile);
+      setVideoUrl(url);
+
+      // Cleanup URL when component unmounts or file changes
+      return () => {
+        URL.revokeObjectURL(url);
+      };
+    }
+  }, [selectedFile]);
+
+  if (!selectedFile) return null;
   return (
     <Card className="bg-gray-800 border-gray-700">
       <CardHeader>
-        <CardTitle className="text-white flex items-center">
-          <Video className="mr-2 h-5 w-5 text-teal-400" />
+        <CardTitle className="flex items-center justify-center text-white">
           Selected Video
         </CardTitle>
       </CardHeader>
       <CardContent>
-        <div className="flex items-center justify-between">
-          <div>
+        <div className="space-y-4">
+          {videoUrl && (
+            <div className="relative aspect-video rounded-lg overflow-hidden bg-gray-900">
+              <video
+                src={videoUrl}
+                controls
+                className=" object-contain"
+                preload="metadata"
+              >
+                Your browser does not support the video tag.
+              </video>
+            </div>
+          )}
+
+          <div className="flex items-center justify-between">
             <p className="font-medium">{selectedFile.name}</p>
             <p className="text-sm text-gray-400">
               {(selectedFile.size / (1024 * 1024)).toFixed(2)} MB
