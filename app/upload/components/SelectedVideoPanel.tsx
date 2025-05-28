@@ -22,7 +22,7 @@ export const SelectedVideoPanel = ({
   isProcessing = false,
 }: SelectedVideoPanelProps) => {
   return (
-    <div className="max-w-4xl mx-auto pt-20">
+    <div className="max-w-4xl mx-auto mt-8">
       {selectedFile && !isProcessing && (
         <div className="space-y-6">
           <SelectedVideoCard

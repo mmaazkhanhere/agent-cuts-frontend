@@ -45,7 +45,7 @@ const VideoUploader = ({ selectedFile, setSelectedFile }) => {
   };
 
   return (
-    <div className="max-w-4xl mx-auto pt-16">
+    <div className="max-w-4xl mx-auto">
       <div className="text-center mb-12">
         <h1 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-teal-400 to-teal-600 bg-clip-text text-transparent">
           Video Upload

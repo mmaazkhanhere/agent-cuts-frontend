@@ -7,7 +7,15 @@ import {
 import { Button } from "../../components/ui/button";
 import { Video, RotateCcw } from "lucide-react";
 
-export const SelectedVideoCard = ({ selectedFile, resetUpload }) => {
+interface SelectedVideoCardProps {
+  selectedFile: File | null;
+  resetUpload: () => void;
+}
+
+export const SelectedVideoCard = ({
+  selectedFile,
+  resetUpload,
+}: SelectedVideoCardProps) => {
   return (
     <Card className="bg-gray-800 border-gray-700">
       <CardHeader>
