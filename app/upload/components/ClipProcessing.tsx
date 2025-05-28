@@ -86,14 +86,14 @@ const ClipProcessing: React.FC<ClipProcessingProps> = ({
       return <XCircle className="h-5 w-5 text-red-500" />;
     if (step.status === "processing")
       return (
-        <div className="h-5 w-5 rounded-full border-2 border-clipgenius-teal border-t-transparent animate-spin" />
+        <div className="h-5 w-5 rounded-full border-2 border-teal-500 border-t-transparent animate-spin" />
       );
     return step.icon;
   };
 
   return (
-    <div className="w-full max-w-3xl mx-auto py-20 animate-fade-in">
-      <div className="text-center mb-12">
+    <div className="w-full max-w-3xl mx-auto animate-fade-in">
+      <div className="text-center mb-16">
         <h1 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-teal-400 to-teal-600 bg-clip-text text-transparent">
           Processing Your Video
         </h1>
@@ -102,8 +102,8 @@ const ClipProcessing: React.FC<ClipProcessingProps> = ({
           take a few minutes.
         </p>
       </div>
-      <div className="text-center my-8 pt-4">
-        <p className="text-white/60">
+      <div className="text-center mb-8">
+        <p className="text-gray-300">
           {fileName} • {Math.round(progress)}% complete
         </p>
         <Progress value={progress} className="h-2 mt-4" />
@@ -115,10 +115,10 @@ const ClipProcessing: React.FC<ClipProcessingProps> = ({
             key={step.id}
             className={`p-4 rounded-lg border transition-all ${
               step.status === "processing"
-                ? "border-border bg-background"
+                ? "border-teal-500 bg-teal-500/5"
                 : step.status === "completed"
                 ? "border-green-500/30 bg-green-500/5"
-                : "border-border bg-card"
+                : "border-gray-600 bg-gray-800"
             }`}
           >
             <div className="flex items-center gap-3 mb-2">
@@ -128,7 +128,7 @@ const ClipProcessing: React.FC<ClipProcessingProps> = ({
                     ? "text-teal-400"
                     : step.status === "completed"
                     ? "text-green-500"
-                    : "text-white/60"
+                    : "text-gray-400"
                 }`}
               >
                 {getStepIcon(step)}
@@ -138,7 +138,7 @@ const ClipProcessing: React.FC<ClipProcessingProps> = ({
                   step.status === "processing"
                     ? "text-teal-400"
                     : step.status === "completed"
-                    ? "text-teal-400"
+                    ? "text-green-500"
                     : "text-white"
                 }`}
               >

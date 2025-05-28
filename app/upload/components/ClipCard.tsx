@@ -26,7 +26,7 @@ const ClipCard: React.FC<{ clip: Clip }> = ({ clip }) => {
   };
 
   return (
-    <div className="clip-card">
+    <div className="bg-gray-800 border-gray-700 p-4 rounded transition duration-200 mt-4">
       <div className="relative mb-3 overflow-hidden rounded-md aspect-video group">
         <img
           src={clip.thumbnailUrl}
@@ -37,7 +37,7 @@ const ClipCard: React.FC<{ clip: Clip }> = ({ clip }) => {
           <Button
             variant="outline"
             size="icon"
-            className="rounded-full bg-clipgenius-teal/80 border-none hover:bg-clipgenius-teal"
+            className="rounded-full bg-teal-400 hover:bg-teal-300 border-none"
             onClick={handlePreview}
           >
             <Play className="h-5 w-5" />
@@ -74,7 +74,7 @@ const ClipCard: React.FC<{ clip: Clip }> = ({ clip }) => {
           {clip.tags.map((tag, index) => (
             <span
               key={index}
-              className="px-2 py-0.5 bg-clipgenius-dark-bg rounded-full text-xs text-white/70"
+              className="px-2 py-0.5 bg-background text-gray-300 rounded-full text-xs"
             >
               {tag}
             </span>
@@ -86,7 +86,7 @@ const ClipCard: React.FC<{ clip: Clip }> = ({ clip }) => {
         <Button
           variant="outline"
           size="sm"
-          className="bg-transparent border-clipgenius-teal/50 text-clipgenius-teal hover:bg-clipgenius-teal/20 flex-1"
+          className="bg-teal-600 hover:bg-teal-500 flex-1"
           onClick={handleDownload}
         >
           <Download className="h-4 w-4 mr-1" /> Download
