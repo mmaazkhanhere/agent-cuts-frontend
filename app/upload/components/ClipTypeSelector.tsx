@@ -44,10 +44,10 @@ export const ClipTypeSelector = ({
       </CardHeader>
       <CardContent>
         <Select value={selectedCategory} onValueChange={setSelectedCategory}>
-          <SelectTrigger className="bg-gray-700 border-gray-600">
+          <SelectTrigger className="!bg-gray-700 !border-gray-600 cursor-pointer w-full">
             <SelectValue placeholder="Choose clip category" />
           </SelectTrigger>
-          <SelectContent className="bg-gray-800 w-[100%] border-gray-600">
+          <SelectContent className="bg-gray-800 border-gray-600">
             {categories.map((category) => (
               <SelectItem key={category.value} value={category.value}>
                 {category.label}

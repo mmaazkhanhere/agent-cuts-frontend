@@ -162,7 +162,7 @@ const FileProcessingPipeline = () => {
     }
   };
 
-  return <div>{renderCurrentStep()}</div>;
+  return <div className="pt-16">{renderCurrentStep()}</div>;
 };
 
 export default FileProcessingPipeline;
