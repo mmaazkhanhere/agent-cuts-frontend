@@ -1,6 +1,8 @@
+"use client";
 import React from "react";
 import { Upload, Cpu, Scissors, Download } from "lucide-react";
 import { ReactElement } from "react";
+import { motion } from "framer-motion";
 
 interface Step {
   icon: ReactElement;
@@ -53,9 +55,18 @@ const HowItWorks = () => {
           {steps.map((step, index) => (
             <div key={index} className="flex flex-col items-center text-center">
               <div className="relative mb-8">
-                <div className="w-20 h-20 rounded-full bg-teal-500/20 flex items-center justify-center">
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{
+                    duration: 0.6,
+                    ease: "easeOut",
+                    delay: index * 0.001, // convert ms to seconds
+                  }}
+                  className="w-20 h-20 rounded-full bg-teal-500/20 flex items-center justify-center"
+                >
                   {step.icon}
-                </div>
+                </motion.div>
                 {index < steps.length - 1 && (
                   <div className="absolute top-1/2 left-full transform -translate-y-1/2 w-full h-0.5 bg-teal-400 opacity-30 hidden lg:block"></div>
                 )}

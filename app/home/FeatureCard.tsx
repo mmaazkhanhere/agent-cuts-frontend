@@ -1,4 +1,6 @@
+"use client";
 import { LucideIcon } from "lucide-react";
+import { motion } from "framer-motion";
 
 interface FeatureCardProps {
   icon: LucideIcon;
@@ -14,9 +16,15 @@ const FeatureCard = ({
   delay = 0,
 }: FeatureCardProps) => {
   return (
-    <div
-      className="group relative p-8 bg-gray-800/50 backdrop-blur-sm border border-gray-700/50 rounded-2xl hover:border-teal-500/50 transition-all duration-500 hover:scale-105 hover:bg-gray-800/70 animate-fade-in"
-      style={{ animationDelay: `${delay}ms` }}
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{
+        duration: 0.6,
+        ease: "easeOut",
+        delay: delay * 0.001, // convert ms to seconds
+      }}
+      className="group relative p-8 bg-gray-800/50 backdrop-blur-sm border border-gray-700/50 rounded-2xl hover:border-teal-500/50 transition-all duration-500 hover:scale-105 hover:bg-gray-800/70  animate-fade-in"
     >
       {/* Gradient background on hover */}
       <div className="absolute inset-0 bg-gradient-to-br from-teal-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl"></div>
@@ -37,7 +45,7 @@ const FeatureCard = ({
 
       {/* Subtle glow effect */}
       <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-r from-transparent via-teal-500/5 to-transparent"></div>
-    </div>
+    </motion.div>
   );
 };
 

@@ -1,11 +1,23 @@
+"use client";
 import React from "react";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { Button } from "../components/ui/button";
+import { motion } from "framer-motion";
+
 const PromoSection = () => {
   return (
     <section className="py-20 bg-gradient-to-r from-teal-600 via-teal-700 to-teal-800">
-      <div className="container px-4 mx-auto text-center">
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{
+          duration: 0.6,
+          ease: "easeOut",
+          delay: 2 * 0.001, // convert ms to seconds
+        }}
+        className="container px-4 mx-auto text-center"
+      >
         <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
           Ready to Transform Your Video Content?
         </h2>
@@ -23,7 +35,7 @@ const PromoSection = () => {
             Try ClipGenius Now <ArrowRight className="ml-2 h-5 w-5" />
           </Link>
         </Button>
-      </div>
+      </motion.div>
     </section>
   );
 };
