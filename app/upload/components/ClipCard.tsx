@@ -6,7 +6,11 @@ import { toast } from "sonner";
 import { Clip } from "@/app/types/clip";
 import Image from "next/image";
 
-const ClipCard: React.FC<{ clip: Clip }> = ({ clip }) => {
+interface ClipCardProps {
+  clip: Clip;
+}
+
+const ClipCard = ({ clip }: ClipCardProps) => {
   const handlePreview = () => {
     toast.info("Preview feature", {
       description: "Preview functionality will be available soon!",

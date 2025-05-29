@@ -4,18 +4,37 @@ import { toast } from "sonner";
 import { Card, CardContent } from "@/app/components/ui/card";
 import { Upload as UploadIcon } from "lucide-react";
 
-const VideoUploader = ({ selectedFile, setSelectedFile }) => {
+// Define props interface for type safety
+interface VideoUploaderProps {
+  selectedFile: File | null;
+  setSelectedFile: (value: File) => void;
+}
+
+const VideoUploader = ({
+  selectedFile,
+  setSelectedFile,
+}: VideoUploaderProps) => {
+  // Ref to access the hidden file input element
   const fileInputRef = useRef<HTMLInputElement>(null);
 
+  /**
+   * Handles drag over event to prevent default browser behavior
+   * @param e - React drag event
+   */
   const handleDragOver = useCallback((e: React.DragEvent) => {
     e.preventDefault();
     e.stopPropagation();
   }, []);
 
+  /**
+   * Handles file drop event
+   * @param e - React drag event containing dropped files
+   */
   const handleDrop = (e: React.DragEvent) => {
     e.preventDefault();
     e.stopPropagation();
     const files = e.dataTransfer.files;
+
     if (files.length > 0) {
       if (files[0].type.startsWith("video/")) {
         setSelectedFile(files[0]);
@@ -26,6 +45,10 @@ const VideoUploader = ({ selectedFile, setSelectedFile }) => {
     }
   };
 
+  /**
+   * Handles file selection via file input
+   * @param e - Change event from file input
+   */
   const handleFileSelect = (e: React.ChangeEvent<HTMLInputElement>) => {
     const files = e.target.files;
     if (files && files.length > 0) {
@@ -38,6 +61,9 @@ const VideoUploader = ({ selectedFile, setSelectedFile }) => {
     }
   };
 
+  /**
+   * Triggers the hidden file input when button is clicked
+   */
   const handleButtonClick = () => {
     if (fileInputRef.current) {
       fileInputRef.current.click();
@@ -54,6 +80,8 @@ const VideoUploader = ({ selectedFile, setSelectedFile }) => {
           Transform your long-form content into viral short clips
         </p>
       </div>
+
+      {/* File upload area (only shown when no file is selected) */}
       {!selectedFile && (
         <Card className="bg-gray-800 border-gray-700">
           <CardContent>
@@ -64,10 +92,13 @@ const VideoUploader = ({ selectedFile, setSelectedFile }) => {
               onClick={() => fileInputRef.current?.click()}
             >
               <UploadIcon className="mx-auto rounded-full p-4 h-16 w-16 bg-background text-teal-400 hover:text-teal-300 transition-colors duration-300 hover:bg-teal-500/20 mb-4" />
+
               <h3 className="text-lg font-semibold mb-1">Upload your video</h3>
               <p className="text-gray-400 text-sm">
                 Drag and drop your file here or click to browse
               </p>
+
+              {/* Hidden file input */}
               <input
                 ref={fileInputRef}
                 type="file"
@@ -76,6 +107,7 @@ const VideoUploader = ({ selectedFile, setSelectedFile }) => {
                 className="hidden"
               />
             </div>
+
             <Button
               onClick={handleButtonClick}
               className="bg-teal-600 hover:bg-teal-500 text-white mt-4 w-[100%]"
