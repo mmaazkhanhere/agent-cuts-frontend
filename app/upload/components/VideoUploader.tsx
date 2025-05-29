@@ -58,7 +58,7 @@ const VideoUploader = ({ selectedFile, setSelectedFile }) => {
         <Card className="bg-gray-800 border-gray-700">
           <CardContent>
             <div
-              className="border-2 border-dashed border-gray-600 rounded-lg p-12 text-center hover:border-teal-500 transition-colors cursor-pointer"
+              className="border-2 border-dashed border-gray-600 rounded-lg md:p-12 p-8 text-center hover:border-teal-500 transition-colors cursor-pointer"
               onDragOver={handleDragOver}
               onDrop={handleDrop}
               onClick={() => fileInputRef.current?.click()}

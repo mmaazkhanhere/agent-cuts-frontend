@@ -49,7 +49,11 @@ export const ClipTypeSelector = ({
           </SelectTrigger>
           <SelectContent className="bg-gray-800 border-gray-600">
             {categories.map((category) => (
-              <SelectItem key={category.value} value={category.value}>
+              <SelectItem
+                key={category.value}
+                value={category.value}
+                className="cursor-pointer"
+              >
                 {category.label}
               </SelectItem>
             ))}

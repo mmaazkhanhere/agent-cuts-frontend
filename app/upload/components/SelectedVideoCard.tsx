@@ -42,11 +42,11 @@ export const SelectedVideoCard = ({
       <CardContent>
         <div className="space-y-4">
           {videoUrl && (
-            <div className="relative aspect-video rounded-lg overflow-hidden bg-gray-900">
+            <div className="relative rounded-lg overflow-hidden bg-gray-900">
               <video
                 src={videoUrl}
                 controls
-                className=" object-contain"
+                className="w-[100%] h-[300px]"
                 preload="metadata"
               >
                 Your browser does not support the video tag.
