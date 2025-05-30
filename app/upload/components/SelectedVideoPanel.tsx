@@ -4,14 +4,14 @@ import { ArrowRight, Wand2 } from "lucide-react";
 import { Button } from "@/app/components/ui/button";
 import { ClipTypeSelector } from "./ClipTypeSelector";
 
-interface SelectedVideoPanelProps {
+type SelectedVideoPanelProps = {
   selectedFile: File | null;
   selectedCategory: string;
   setSelectedCategory: (value: string) => void;
   resetUpload: () => void;
   simulateUpload: () => void;
   isProcessing?: boolean;
-}
+};
 
 export const SelectedVideoPanel = ({
   selectedFile,

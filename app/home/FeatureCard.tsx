@@ -2,12 +2,12 @@
 import { LucideIcon } from "lucide-react";
 import { motion } from "framer-motion";
 
-interface FeatureCardProps {
+type FeatureCardProps = {
   icon: LucideIcon;
   title: string;
   description: string;
   delay?: number;
-}
+};
 
 const FeatureCard = ({
   icon: Icon,

@@ -4,9 +4,9 @@ import { Download, Flame } from "lucide-react";
 import { toast } from "sonner";
 import { Clip } from "@/app/types/clip";
 
-interface ClipCardProps {
+type ClipCardProps = {
   clip: Clip;
-}
+};
 
 const ClipCard = ({ clip }: ClipCardProps) => {
   const handleDownload = () => {
@@ -38,9 +38,9 @@ const ClipCard = ({ clip }: ClipCardProps) => {
           poster={clip.thumbnail}
           controls
           preload="metadata"
+          src={clip.url}
         >
-          <source src={clip.url} type="video/mp4" />
-          <source src={clip.url} type="video/ogg" />
+          Your browser does not support the video tag.
         </video>
       </div>
 

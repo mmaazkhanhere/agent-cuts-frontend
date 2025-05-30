@@ -2,10 +2,7 @@ import React from "react";
 import { ClipResultsProps } from "@/app/types/clip";
 import ClipCard from "./ClipCard";
 
-const ClipResults: React.FC<ClipResultsProps> = ({
-  clips,
-  originalFileName,
-}) => {
+const ClipResults = ({ clips, originalFileName }: ClipResultsProps) => {
   return (
     <div className="w-full max-w-6xl mx-auto animate-fade-in">
       <div className="text-center mb-16">

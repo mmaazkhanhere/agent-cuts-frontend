@@ -13,15 +13,15 @@ import {
   SelectItem,
 } from "@/app/components/ui/select";
 
-interface ClipTypeSelectorProps {
+type ClipTypeSelectorProps = {
   selectedCategory: string;
   setSelectedCategory: (value: string) => void;
-}
+};
 
-interface Category {
+type Category = {
   value: string;
   label: string;
-}
+};
 export const ClipTypeSelector = ({
   selectedCategory,
   setSelectedCategory,

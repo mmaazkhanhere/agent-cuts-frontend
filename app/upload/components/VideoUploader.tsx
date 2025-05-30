@@ -4,11 +4,10 @@ import { toast } from "sonner";
 import { Card, CardContent } from "@/app/components/ui/card";
 import { Upload as UploadIcon } from "lucide-react";
 
-// Define props interface for type safety
-interface VideoUploaderProps {
+type VideoUploaderProps = {
   selectedFile: File | null;
   setSelectedFile: (value: File) => void;
-}
+};
 
 const VideoUploader = ({
   selectedFile,

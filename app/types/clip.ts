@@ -1,4 +1,4 @@
-export interface Clip {
+export type Clip = {
   id: string;
   title: string;
   url: string;
@@ -6,9 +6,9 @@ export interface Clip {
   viralityScore: number;
   description: string;
   tags: string[];
-}
+};
 
-export interface ClipResultsProps {
+export type ClipResultsProps = {
   clips: Clip[];
   originalFileName: string;
-}
+};

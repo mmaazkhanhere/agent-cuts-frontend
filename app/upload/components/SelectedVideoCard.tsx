@@ -8,10 +8,10 @@ import {
 import { Button } from "../../components/ui/button";
 import { RotateCcw } from "lucide-react";
 
-interface SelectedVideoCardProps {
+type SelectedVideoCardProps = {
   selectedFile: File | null;
   resetUpload: () => void;
-}
+};
 
 export const SelectedVideoCard = ({
   selectedFile,
