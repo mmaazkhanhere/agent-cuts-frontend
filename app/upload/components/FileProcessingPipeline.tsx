@@ -29,8 +29,7 @@ const FileProcessingPipeline = () => {
     {
       id: "clip1",
       title: "Top 5 AI Predictions That Will Transform The Tech Industry",
-      duration: "0:58",
-      url: "C:/Users/User/Downloads/videoplayback.mp4",
+      url: "/clip.mp4",
       thumbnail:
         "https://images.unsplash.com/photo-1633412802994-5c058f151b66?q=80&w=2070&auto=format&fit=crop",
       viralityScore: 8.7,
@@ -41,8 +40,7 @@ const FileProcessingPipeline = () => {
     {
       id: "clip2",
       title: "Top 5 AI Predictions That Will Transform The Tech Industry",
-      duration: "0:58",
-      url: "C:/Users/User/Downloads/videoplayback.mp4",
+      url: "/clip.mp4",
       thumbnail:
         "https://images.unsplash.com/photo-1633412802994-5c058f151b66?q=80&w=2070&auto=format&fit=crop",
       viralityScore: 8.7,
@@ -53,8 +51,7 @@ const FileProcessingPipeline = () => {
     {
       id: "clip3",
       title: "Top 5 AI Predictions That Will Transform The Tech Industry",
-      duration: "0:58",
-      url: "C:/Users/User/Downloads/videoplayback.mp4",
+      url: "/clip.mp4",
       thumbnail:
         "https://images.unsplash.com/photo-1633412802994-5c058f151b66?q=80&w=2070&auto=format&fit=crop",
       viralityScore: 8.7,

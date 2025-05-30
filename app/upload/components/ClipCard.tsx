@@ -1,22 +1,14 @@
 import React from "react";
 import { Button } from "../../components/ui/button";
-import { Download, Play, Flame } from "lucide-react";
-// import { useToast } from '@/hooks/use-toast';
+import { Download, Flame } from "lucide-react";
 import { toast } from "sonner";
 import { Clip } from "@/app/types/clip";
-import Image from "next/image";
 
 interface ClipCardProps {
   clip: Clip;
 }
 
 const ClipCard = ({ clip }: ClipCardProps) => {
-  const handlePreview = () => {
-    toast.info("Preview feature", {
-      description: "Preview functionality will be available soon!",
-    });
-  };
-
   const handleDownload = () => {
     // Create a temporary anchor element to trigger download
     const link = document.createElement("a");
@@ -39,34 +31,17 @@ const ClipCard = ({ clip }: ClipCardProps) => {
 
   return (
     <div className="bg-gray-800 border-gray-700 p-4 rounded transition duration-200 mt-4">
-      <div className="relative mb-3 overflow-hidden rounded-md aspect-video group">
-        <img
-          src={clip.thumbnail}
-          alt={clip.title}
-          className="w-full h-full object-cover transition-transform group-hover:scale-105"
-        />
-        <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-          <Button
-            variant="outline"
-            size="icon"
-            className="rounded-full bg-teal-400 hover:bg-teal-300 border-none"
-            onClick={handlePreview}
-          >
-            <Play className="h-5 w-5" />
-          </Button>
-        </div>
+      <div className="relative mb-3 overflow-hidden w-[100%] h-[400px] rounded-md aspect-video group">
+        <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center"></div>
         <video
-          src={clip.url}
+          className="w-[100%] h-[100%] object-cover rounded-md"
           poster={clip.thumbnail}
           controls
-          className="w-full h-full object-cover rounded-md"
           preload="metadata"
         >
-          Your browser does not support the video tag.
+          <source src={clip.url} type="video/mp4" />
+          <source src={clip.url} type="video/ogg" />
         </video>
-        <div className="absolute bottom-2 right-2 bg-black/80 px-2 py-1 rounded text-xs text-white">
-          {clip.duration}
-        </div>
       </div>
 
       <div className="mb-4">
