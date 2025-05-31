@@ -1,33 +1,34 @@
 import React from "react";
-import { Progress } from "@/app/components/ui/progress";
-import {
-  Braces,
-  Wand2,
-  VideoIcon,
-  SplitSquareVertical,
-  CheckCircle,
-  XCircle,
-} from "lucide-react";
+import { Braces, Wand2, VideoIcon, SplitSquareVertical } from "lucide-react";
+import ProgressBar from "./ProgressBar";
+import { ProcessingStep } from "@/app/types/processing";
+import StepCard from "./StepCard";
 
-type ProcessingStep = {
-  id: string;
-  title: string;
-  description: string;
-  icon: React.ReactNode;
-  status: "pending" | "processing" | "completed" | "failed";
-};
-
-interface ClipProcessingProps {
+/**
+ * Props for the ClipProcessing component
+ */
+type ClipProcessingProps = {
   fileName: string;
   progress: number;
   currentStep: number;
-}
+};
 
-const ClipProcessing: React.FC<ClipProcessingProps> = ({
+/**
+ * ClipProcessing Component
+ * Displays a visual progress tracker for video processing steps
+ */
+const ClipProcessing = ({
   fileName,
   progress,
   currentStep,
-}) => {
+}: ClipProcessingProps) => {
+  /**
+   * Array of processing steps with their current status
+   * Status is determined based on the currentStep prop:
+   * - Steps before currentStep are "completed"
+   * - The currentStep is "processing"
+   * - Steps after currentStep are "pending"
+   */
   const steps: ProcessingStep[] = [
     {
       id: "transcribe",
@@ -79,18 +80,6 @@ const ClipProcessing: React.FC<ClipProcessingProps> = ({
     },
   ];
 
-  const getStepIcon = (step: ProcessingStep) => {
-    if (step.status === "completed")
-      return <CheckCircle className="h-5 w-5 text-green-500" />;
-    if (step.status === "failed")
-      return <XCircle className="h-5 w-5 text-red-500" />;
-    if (step.status === "processing")
-      return (
-        <div className="h-5 w-5 rounded-full border-2 border-teal-500 border-t-transparent animate-spin" />
-      );
-    return step.icon;
-  };
-
   return (
     <div className="w-full max-w-3xl mx-auto animate-fade-in">
       <div className="text-center mb-16">
@@ -102,51 +91,14 @@ const ClipProcessing: React.FC<ClipProcessingProps> = ({
           take a few minutes.
         </p>
       </div>
-      <div className="text-center mb-8">
-        <p className="text-gray-300">
-          {fileName} • {Math.round(progress)}% complete
-        </p>
-        <Progress value={progress} className="h-2 mt-4" />
-      </div>
 
+      {/* Progress bar section */}
+      <ProgressBar fileName={fileName} progress={progress} />
+
+      {/* Steps grid */}
       <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
-        {steps.map((step) => (
-          <div
-            key={step.id}
-            className={`p-4 rounded-lg border transition-all ${
-              step.status === "processing"
-                ? "border-teal-500 bg-teal-500/5"
-                : step.status === "completed"
-                ? "border-green-500/30 bg-green-500/5"
-                : "border-gray-600 bg-gray-800"
-            }`}
-          >
-            <div className="flex items-center gap-3 mb-2">
-              <div
-                className={`${
-                  step.status === "processing"
-                    ? "text-teal-400"
-                    : step.status === "completed"
-                    ? "text-green-500"
-                    : "text-gray-400"
-                }`}
-              >
-                {getStepIcon(step)}
-              </div>
-              <h4
-                className={`font-medium ${
-                  step.status === "processing"
-                    ? "text-teal-400"
-                    : step.status === "completed"
-                    ? "text-green-500"
-                    : "text-white"
-                }`}
-              >
-                {step.title}
-              </h4>
-            </div>
-            <p className="text-gray-400 text-sm pl-8">{step.description}</p>
-          </div>
+        {steps.map((step, index) => (
+          <StepCard step={step} key={index} />
         ))}
       </div>
     </div>

@@ -7,8 +7,3 @@ export type Clip = {
   description: string;
   tags: string[];
 };
-
-export type ClipResultsProps = {
-  clips: Clip[];
-  originalFileName: string;
-};

@@ -1,6 +1,11 @@
 import React from "react";
-import { ClipResultsProps } from "@/app/types/clip";
 import ClipCard from "./ClipCard";
+import { Clip } from "@/app/types/clip";
+
+export type ClipResultsProps = {
+  clips: Clip[];
+  originalFileName: string;
+};
 
 const ClipResults = ({ clips, originalFileName }: ClipResultsProps) => {
   return (
