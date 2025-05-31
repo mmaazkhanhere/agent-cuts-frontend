@@ -25,7 +25,7 @@ const Hero = () => {
         ))}
       </div>
 
-      <div className="relative z-10 text-center max-w-5xl mx-auto px-6">
+      <div className="relative z-10 text-center max-w-5xl mx-auto px-6 py-4 md:py-0">
         <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-teal-500/10 border border-teal-500/20 mb-8 animate-fade-in">
           <Sparkles className="w-4 h-4 text-teal-400" />
           <span className="text-teal-300 text-sm font-medium">

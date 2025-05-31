@@ -20,7 +20,7 @@ const ClipResults = ({ clips, originalFileName }: ClipResultsProps) => {
         </p>
       </div>
 
-      <div className="grid gap-6 sm:grid-cols-2 mt-4 lg:grid-cols-3">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4 lg:grid-cols-3">
         {clips.map((clip) => (
           <ClipCard key={clip.id} clip={clip} />
         ))}
