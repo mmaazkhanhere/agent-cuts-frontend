@@ -1,96 +1,76 @@
 import React from "react";
-import { Button } from "../../components/ui/button";
-import { Download, Flame } from "lucide-react";
-import { toast } from "sonner";
+import { Card, CardContent } from "@/app/components/ui/card";
+import { Flame } from "lucide-react";
+import { cn } from "@/lib/utils";
 import { Clip } from "@/app/types/clip";
+import ClipCardContentSetion from "./ClipCardContentSetion";
 
 type ClipCardProps = {
   clip: Clip;
 };
 
 const ClipCard = ({ clip }: ClipCardProps) => {
-  const handleDownload = () => {
-    // Create a temporary anchor element to trigger download
-    const link = document.createElement("a");
-    link.href = clip.url;
-    link.download = `${clip.title}.mp4`; // Use clip title as filename
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-
-    toast.success("Download initiated", {
-      description: "Your clip is being downloaded.",
-    });
+  const getViralityColor = (score: number) => {
+    if (score >= 8) return "text-emerald-400";
+    if (score >= 5) return "text-amber-400";
+    return "text-orange-400";
   };
 
-  const getViralityColor = (score: number) => {
-    if (score >= 8) return "text-green-500";
-    if (score >= 5) return "text-yellow-500";
-    return "text-orange-500";
+  const getViralityBadgeStyle = (score: number) => {
+    if (score >= 8) return "bg-emerald-500/20 border-emerald-500/30";
+    if (score >= 5) return "bg-amber-500/20 border-amber-500/30";
+    return "bg-orange-500/20 border-orange-500/30";
   };
 
   return (
-    <div className="bg-gray-800 border-gray-700 p-4 rounded transition duration-200 mt-4">
-      <div className="relative mb-3 overflow-hidden w-[100%] h-[400px] rounded-md aspect-video group">
-        <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center"></div>
-        <video
-          className="w-[100%] h-[100%] object-cover rounded-md"
-          poster={clip.thumbnail}
-          controls
-          preload="metadata"
-          src={clip.url}
-        >
-          Your browser does not support the video tag.
-        </video>
-      </div>
-
-      <div className="mb-4">
-        <div className="flex justify-between items-start mb-1">
-          <h3
-            className="font-medium text-white line-clamp-2"
-            title={clip.title}
-          >
-            {clip.title}
-          </h3>
-          <div className="flex items-center gap-1 ml-2">
-            <Flame
-              className={`h-4 w-4 ${getViralityColor(clip.viralityScore)}`}
-            />
-            <span
-              className={`text-sm font-medium ${getViralityColor(
-                clip.viralityScore
-              )}`}
+    <Card className="group overflow-hidden !pt-0 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 border-slate-700/50 shadow-2xl hover:shadow-blue-500/10 transition-all duration-500 hover:border-slate-600">
+      <CardContent className="p-0">
+        <div className="relative overflow-hidden bg-slate-900">
+          <div className="aspect-video w-[100%] h-[400px] relative group">
+            <video
+              className="w-[100%] h-[100%] object-cover transition-transform duration-700 group-hover:scale-105"
+              poster={clip.thumbnail}
+              controls
+              preload="metadata"
+              src={clip.url}
             >
-              {clip.viralityScore}
-            </span>
+              Your browser does not support the video tag.
+            </video>
+
+            {/* Gradient Overlay */}
+            <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-transparent to-transparent pointer-events-none" />
+
+            {/* Virality Score Badge */}
+            <div
+              className={cn(
+                "absolute top-4 right-4 px-3 py-1.5 rounded-full border backdrop-blur-sm transition-all duration-300",
+                getViralityBadgeStyle(clip.viralityScore)
+              )}
+            >
+              <div className="flex items-center gap-1.5">
+                <Flame
+                  className={cn(
+                    "h-4 w-4",
+                    getViralityColor(clip.viralityScore)
+                  )}
+                />
+                <span
+                  className={cn(
+                    "text-sm font-bold",
+                    getViralityColor(clip.viralityScore)
+                  )}
+                >
+                  {clip.viralityScore}
+                </span>
+              </div>
+            </div>
           </div>
         </div>
 
-        <p className="text-gray-400 text-sm my-4">{clip.description}</p>
-
-        <div className="flex flex-wrap gap-1 py-2">
-          {clip.tags.map((tag, index) => (
-            <span
-              key={index}
-              className="px-3 py-1 bg-background text-gray-300 rounded-full text-xs"
-            >
-              {tag}
-            </span>
-          ))}
-        </div>
-      </div>
-
-      <div className="flex gap-2">
-        <Button
-          variant="outline"
-          size="sm"
-          className="bg-teal-600 hover:bg-teal-500 flex-1"
-          onClick={handleDownload}
-        >
-          <Download className="h-4 w-4 mr-1" /> Download
-        </Button>
-      </div>
-    </div>
+        {/* Content Section */}
+        <ClipCardContentSetion clip={clip} />
+      </CardContent>
+    </Card>
   );
 };
 
