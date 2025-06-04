@@ -5,35 +5,24 @@ import {
   CardDescription,
   CardContent,
 } from "@/app/components/ui/card";
-import {
-  Select,
-  SelectTrigger,
-  SelectValue,
-  SelectContent,
-  SelectItem,
-} from "@/app/components/ui/select";
+import { Button } from "@/app/components/ui/button";
 
 type ClipTypeSelectorProps = {
   selectedCategory: string;
   setSelectedCategory: (value: string) => void;
 };
 
-type Category = {
-  value: string;
-  label: string;
-};
 export const ClipTypeSelector = ({
   selectedCategory,
   setSelectedCategory,
 }: ClipTypeSelectorProps) => {
-  const categories: Category[] = [
-    { value: "highlights", label: "Best Moments & Highlights" },
-    { value: "educational", label: "Educational Snippets" },
-    { value: "funny", label: "Funny Moments" },
-    { value: "motivational", label: "Motivational Quotes" },
-    { value: "tutorial", label: "Quick Tutorials" },
-    { value: "trending", label: "Trending Topics" },
+  const categories = [
+    { value: "funny", label: "Funny" },
+    { value: "action", label: "Action" },
+    { value: "trending", label: "Trending" },
+    { value: "auto", label: "Auto" },
   ];
+
   return (
     <Card className="bg-gray-800 border-gray-700">
       <CardHeader>
@@ -43,22 +32,22 @@ export const ClipTypeSelector = ({
         </CardDescription>
       </CardHeader>
       <CardContent>
-        <Select value={selectedCategory} onValueChange={setSelectedCategory}>
-          <SelectTrigger className="!bg-gray-700 !border-gray-600 cursor-pointer w-full">
-            <SelectValue placeholder="Choose clip category" />
-          </SelectTrigger>
-          <SelectContent className="bg-gray-800 border-gray-600">
-            {categories.map((category) => (
-              <SelectItem
-                key={category.value}
-                value={category.value}
-                className="cursor-pointer"
-              >
-                {category.label}
-              </SelectItem>
-            ))}
-          </SelectContent>
-        </Select>
+        <div className="grid grid-cols-2 gap-4">
+          {categories.map((category) => (
+            <Button
+              key={category.value}
+              onClick={() => setSelectedCategory(category.value)}
+              size="lg"
+              className={`${
+                selectedCategory === category.value
+                  ? "bg-teal-500 hover:bg-teal-400"
+                  : "bg-gray-700 hover:bg-gray-600"
+              } transition-colors`}
+            >
+              {category.label}
+            </Button>
+          ))}
+        </div>
       </CardContent>
     </Card>
   );
