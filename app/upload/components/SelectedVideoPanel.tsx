@@ -13,7 +13,7 @@ type SelectedVideoPanelProps = {
   isProcessing?: boolean;
 };
 
-export const SelectedVideoPanel = ({
+const SelectedVideoPanel = ({
   selectedFile,
   selectedCategory,
   setSelectedCategory,

@@ -1,40 +1,7 @@
 "use client";
 import React from "react";
-import { Upload, Cpu, Scissors, Download } from "lucide-react";
-import { ReactElement } from "react";
 import { motion } from "framer-motion";
-
-interface Step {
-  icon: ReactElement;
-  title: string;
-  description: string;
-}
-
-const steps: Step[] = [
-  {
-    icon: <Upload className="h-8 w-8 text-teal-400" />,
-    title: "Upload",
-    description: "Upload your long-form video content to our secure platform.",
-  },
-  {
-    icon: <Cpu className="h-8 w-8 text-teal-400" />,
-    title: "AI Analysis",
-    description:
-      "Our AI analyzes your content for the most engaging and viral-worthy moments.",
-  },
-  {
-    icon: <Scissors className="h-8 w-8 text-teal-400" />,
-    title: "Clip Generation",
-    description:
-      "We automatically generate and optimize clips for social media platforms.",
-  },
-  {
-    icon: <Download className="h-8 w-8 text-teal-400" />,
-    title: "Download & Share",
-    description:
-      "Download your ready-to-share clips and post them to grow your audience.",
-  },
-];
+import { VideoProcessingSteps } from "../data/VideoProcessingSteps";
 
 const HowItWorks = () => {
   return (
@@ -52,7 +19,7 @@ const HowItWorks = () => {
         </div>
 
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
-          {steps.map((step, index) => (
+          {VideoProcessingSteps.map((step, index) => (
             <div key={index} className="flex flex-col items-center text-center">
               <div className="relative mb-8">
                 <motion.div
@@ -65,9 +32,9 @@ const HowItWorks = () => {
                   }}
                   className="w-20 h-20 rounded-full bg-teal-500/20 flex items-center justify-center"
                 >
-                  {step.icon}
+                  <step.Icon className="h-8 w-8 text-teal-400" />
                 </motion.div>
-                {index < steps.length - 1 && (
+                {index < VideoProcessingSteps.length - 1 && (
                   <div className="absolute top-1/2 left-full transform -translate-y-1/2 w-full h-0.5 bg-teal-400 opacity-30 hidden lg:block"></div>
                 )}
                 <div className="absolute -top-2 -right-2 w-8 h-8 rounded-full bg-teal-400 flex items-center justify-center text-sm font-bold text-white">
