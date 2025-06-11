@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import Link from "next/link";
 import { Button } from "./ui/button";
 import { Menu, X } from "lucide-react";
+import MobileNavMenu from "./MobileNavMenu";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
@@ -11,7 +12,7 @@ const Navbar = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
-  const list = [
+  const navItem = [
     { link: "/", name: "Home" },
     { link: "/about", name: "About" },
   ];
@@ -32,7 +33,7 @@ const Navbar = () => {
           {/* Desktop Navigation */}
           <div className="hidden md:block">
             <div className="flex items-baseline space-x-8">
-              {list.map((item, index) => (
+              {navItem.map((item, index) => (
                 <Link
                   key={index}
                   href={item.link}
@@ -67,26 +68,7 @@ const Navbar = () => {
         </div>
 
         {/* Mobile Navigation */}
-        {isMenuOpen && (
-          <div className="md:hidden">
-            <div className="px-2 pt-2 pb-3 space-y-1 bg-gray-800/50 rounded-lg mt-2 border border-gray-700/50">
-              {list.map((item, index) => (
-                <Link
-                  key={index}
-                  href={item.link}
-                  className="text-gray-300 hover:text-teal-400 block px-3 py-2 text-base font-medium transition-colors duration-200"
-                >
-                  {item.name}
-                </Link>
-              ))}
-              <div className="pt-2">
-                <Button className="w-full bg-teal-600 hover:bg-teal-500 text-white">
-                  Get Started
-                </Button>
-              </div>
-            </div>
-          </div>
-        )}
+        <MobileNavMenu navItem={navItem} isMenuOpen={isMenuOpen} />
       </div>
     </nav>
   );
