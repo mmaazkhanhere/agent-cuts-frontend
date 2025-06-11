@@ -13,7 +13,6 @@ const Navbar = () => {
 
   const list = [
     { link: "/", name: "Home" },
-    { link: "/dashboard", name: "Dashboard" },
     { link: "/about", name: "About" },
   ];
   return (
@@ -32,7 +31,7 @@ const Navbar = () => {
 
           {/* Desktop Navigation */}
           <div className="hidden md:block">
-            <div className="ml-10 flex items-baseline space-x-8">
+            <div className="flex items-baseline space-x-8">
               {list.map((item, index) => (
                 <Link
                   key={index}
