@@ -22,9 +22,6 @@ const Navbar = () => {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2 flex-shrink-0">
-            <div className="bg-teal-gradient w-8 h-8 rounded-md flex items-center justify-center">
-              <span className="font-bold text-white">CG</span>
-            </div>
             <h1 className="text-2xl font-bold bg-gradient-to-r from-teal-400 to-teal-600 bg-clip-text text-transparent">
               ClipGenius
             </h1>
