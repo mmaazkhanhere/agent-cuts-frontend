@@ -34,14 +34,13 @@ The project focuses on a smooth user experience with real-time feedback, intuiti
 
 - **react-toastify** - Elegant toast notifications for success/error feedback
 
-- **socket.io-client** - Real-time, event-based communication (if used with backend)
+- **socket.io-client** - Real-time, event-based communication
 
 ## ⚙️ Getting Started
 
 ```bash
 
 # Clone the repo
-
 git clone https://github.com/mmaazkhanhere/agent-cuts-frontend.git
 
 cd agent-cuts-frontend
