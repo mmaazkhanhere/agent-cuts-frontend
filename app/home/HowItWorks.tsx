@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import { motion } from "framer-motion";
-import { VideoProcessingSteps } from "../data/VideoProcessingSteps";
+import { VideoStepDetails } from "../data/VideoStepDetails";
 
 const HowItWorks = () => {
   return (
@@ -19,7 +19,7 @@ const HowItWorks = () => {
         </div>
 
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
-          {VideoProcessingSteps.map((step, index) => (
+          {VideoStepDetails.map((step, index) => (
             <div key={index} className="flex flex-col items-center text-center">
               <div className="relative mb-8">
                 <motion.div
@@ -34,7 +34,7 @@ const HowItWorks = () => {
                 >
                   <step.Icon className="h-8 w-8 text-teal-400" />
                 </motion.div>
-                {index < VideoProcessingSteps.length - 1 && (
+                {index < VideoStepDetails.length - 1 && (
                   <div className="absolute top-1/2 left-full transform -translate-y-1/2 w-full h-0.5 bg-teal-400 opacity-30 hidden lg:block"></div>
                 )}
                 <div className="absolute -top-2 -right-2 w-8 h-8 rounded-full bg-teal-400 flex items-center justify-center text-sm font-bold text-white">

@@ -1,7 +1,7 @@
 import { Upload, Cpu, Scissors, Download } from "lucide-react";
-import { VideoProcessingStep } from "../types/VideoProcessingStep";
+import { VideoStepDetail } from "../types/VideoStepDetail";
 
-export const VideoProcessingSteps: VideoProcessingStep[] = [
+export const VideoStepDetails: VideoStepDetail[] = [
   {
     Icon: Upload,
     title: "Upload",
