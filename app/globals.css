@@ -35,6 +35,7 @@
   --color-popover-foreground: hsl(210 40% 98%);
   --color-card: hsl(222.2 84% 4.9%);
   --color-card-foreground: hsl(210 40% 98%);
+  --color-error: hsl(10 85% 60%);
 
   /* Teal Color Palette */
   --color-teal-50: #f0fdfa;

@@ -1,7 +1,6 @@
 import { LucideIcon } from "lucide-react";
-
-export type VideoProcessingStep = {
-  Icon: LucideIcon;
+export interface VideoProcessingStep {
+  id: string;
   title: string;
-  description: string;
-};
+  Icon: LucideIcon;
+}
