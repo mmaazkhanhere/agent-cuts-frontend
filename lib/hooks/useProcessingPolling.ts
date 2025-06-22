@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
 import { STEP_ORDER } from "@/app/constants/stepsOrder";
 import trackProcessingStatus from "../services/trackProcessingStatus";
 
@@ -10,7 +10,8 @@ const useProcessingPolling = (uniquePhrase: string | null, interval = 2000) => {
   const [error, setError] = useState<string | null>(null);
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
 
-  const getStepStatus = (stepId: string): "completed" | "active" | "pending" => {
+  // Memoize the getStepStatus function to prevent unnecessary re-renders
+  const getStepStatus = useCallback((stepId: string): "completed" | "active" | "pending" => {
     if (completedSteps.includes(stepId)) {
       return "completed";
     } else if (stepId === currentStep) {
@@ -18,32 +19,33 @@ const useProcessingPolling = (uniquePhrase: string | null, interval = 2000) => {
     } else {
       return "pending";
     }
-  };
+  }, [completedSteps, currentStep]);
+
 
   useEffect(() => {
     if (!uniquePhrase) return;
+
+    let isMounted = true; // Prevent state updates if component unmounts
 
     const poll = async () => {
       try {
         const data = await trackProcessingStatus(uniquePhrase);
         
+        // Only update state if component is still mounted
+        if (!isMounted) return;
+
         setProgress(data.progress.percentage);
         setCurrentStep(data.progress.current_step);
-        
-          // Use the steps_completed from backend if available, otherwise calculate
+
+        // Use the steps_completed from backend if available
         const backendCompletedSteps = data.progress.steps_completed;
-        // const calculatedCompletedSteps = STEP_ORDER.slice(
-        //   0, 
-        //   STEP_ORDER.indexOf(data.progress.current_step)
-        // );
         
         // Merge both sources of truth for completed steps
         const newCompletedSteps = Array.from(
           new Set([...backendCompletedSteps])
         ).filter(step => step !== data.progress.current_step);
-        
+
         setCompletedSteps(newCompletedSteps);
-        console.log("Completed steps:", newCompletedSteps);
 
         if (data.error) {
           setError("Processing failed. Please try uploading your video again.");
@@ -56,34 +58,52 @@ const useProcessingPolling = (uniquePhrase: string | null, interval = 2000) => {
           return;
         }
 
-        timeoutRef.current = setTimeout(poll, interval);
+        // set timeout if still mounted and not complete
+        if (isMounted && data.status !== 'completed') {
+          timeoutRef.current = setTimeout(poll, interval);
+        }
       } catch (error) {
         console.error("Polling error:", error);
-        setError("Connection lost. Please check your internet and try again.");
-        timeoutRef.current = setTimeout(poll, interval * 2);
+        if (isMounted) {
+          setError("Connection lost. Please check your internet and try again.");
+          timeoutRef.current = setTimeout(poll, interval * 2);
+        }
       }
     };
 
     poll();
 
-     // Cleanup
+    // Cleanup function
     return () => {
+      isMounted = false;
       if (timeoutRef.current) {
         clearTimeout(timeoutRef.current);
       }
     };
-  }, [uniquePhrase, interval]);
+  }, [uniquePhrase, interval]); 
+
+
+  // Reset function to clear all state
+  const reset = useCallback(() => {
+    setProgress(0);
+    setCurrentStep("uploaded");
+    setCompletedSteps([]);
+    setIsComplete(false);
+    setError(null);
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current);
+    }
+  }, []);
 
   return {
-    progress, 
-    setProgress,
+    progress,
     currentStep,
-    setCurrentStep,
     completedSteps,
-    isComplete, 
+    isComplete,
     error,
     setError,
     getStepStatus,
+    reset, 
   };
 };
 

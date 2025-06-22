@@ -29,10 +29,9 @@ const ClipCard = ({ clip }) => {
           <div className="aspect-video w-[100%] h-[400px] relative group">
             <video
               className="w-[100%] h-[100%] object-cover transition-transform duration-700 group-hover:scale-105"
-              // poster={clip.thumbnail}
               controls
               preload="metadata"
-              src={`http://localhost:8000${clip.download_url}`}
+              src={`${process.env.NEXT_PUBLIC_BACKEND_URL}${clip.download_url}`}
             >
               Your browser does not support the video tag.
             </video>

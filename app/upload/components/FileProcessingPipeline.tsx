@@ -30,14 +30,13 @@ const FileProcessingPipeline = () => {
   // Updated hook usage with new return values
   const { 
     progress, 
-    setProgress,
     currentStep,
-    setCurrentStep, 
     completedSteps,
     isComplete, 
     error,
     setError,
     getStepStatus,
+    reset, 
   } = useProcessingPolling(uniquePhrase);
   
   // Handle file selection and move to UPLOADED status
@@ -80,6 +79,7 @@ const FileProcessingPipeline = () => {
     if (!uniquePhrase) return;
     try {
       const data = await segments(uniquePhrase);
+      console.log(segment)
       setGeneratedClips(data.segments);
     } catch (error) {
       console.error("Error fetching segments:", error);
@@ -91,11 +91,10 @@ const FileProcessingPipeline = () => {
   const resetUpload = () => {
     setSelectedFile(null);
     setSelectedCategory("");
-    setProgress(0);
-    setCurrentStep("uploaded");
     setGeneratedClips([]);
     setUniquePhrase(null);
     setUploadStatus(UploadStatus.UPLOAD);
+    reset()
     if (fileInputRef.current) {
       fileInputRef.current.value = "";
     }
@@ -142,7 +141,6 @@ const FileProcessingPipeline = () => {
           <div className="space-y-6">
             <ClipResults
               clips={generatedClips}
-              originalFileName={selectedFile?.name || "Unknown file"}
             />
             <div className="text-center">
               <Button onClick={resetUpload} variant="outline" size="lg">

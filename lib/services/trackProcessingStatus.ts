@@ -10,7 +10,6 @@ const trackProcessingStatus = async (uniquePhrase: string): Promise<BackendProgr
     }
     
     const data: BackendProgress = await response.json();
-    console.log("Polling data:", data);
     return data;
   } catch (error) {
     console.error("Error in trackProcessingStatus:", error);
