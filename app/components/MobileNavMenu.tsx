@@ -23,7 +23,7 @@ const MobileNavMenu = ({ navItem, isMenuOpen }: props) => {
             ))}
             <div className="pt-2">
               <Button className="w-full bg-teal-600 hover:bg-teal-500 text-white">
-                Get Started
+                <Link href="/upload">Upload</Link>
               </Button>
             </div>
           </div>
