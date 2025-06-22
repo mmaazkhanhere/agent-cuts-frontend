@@ -34,6 +34,44 @@ The project focuses on a smooth user experience with real-time feedback, intuiti
 
 - **react-toastify** - Elegant toast notifications for success/error feedback
 
+## 📁 Project Structure
+
+```bash
+
+agent-cuts-frontend/
+├── 📁 public/                          # Static assets
+├── 📁 types/                           # TypeScript types
+│
+├── 📁 app/                             # Next.js App Router
+│   ├── 📁 components/                  # Reusable UI components
+│   │   ├── 📁 ui/                      # ShadCN components
+│   │   ├── Navbar.tsx                  
+│   │   └── Footer.tsx                  
+│   │
+│   ├── 📁 constants/                   # App constants
+│   ├── 📁 data/                        # Static data files
+│   │
+│   ├── layout.tsx                      # Root layout
+│   ├── page.tsx                        # Home page
+│   ├── globals.css                     # Global styles
+│   │
+│   ├── 📁 home/                        # Home page components
+│   │
+│   ├── 📁 about/                       # About page
+│   │   ├── page.tsx                    # About page component
+│   │   └── 📁 components/              # Page-specific components
+│   │
+│   └── 📁 upload/                      # Upload page
+│       ├── page.tsx                    # Upload page component
+│       └── 📁 components/              # Page-specific components
+│
+├── 📁 lib/                             # Non-UI logic
+│   ├── 📁 hooks/                       # Custom React hooks
+│   ├── 📁 services/                    # API services (fetch wrappers)
+│   └── 📁 utils/                       # Utility functions
+│
+
+```
 
 ## ⚙️ Getting Started
 
