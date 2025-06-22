@@ -37,8 +37,8 @@ const SelectedVideoPanel = ({
 
           <div className="text-center">
             <Button
-              onClick={simulateUpload}
               disabled={!selectedCategory}
+              onClick={simulateUpload}
               size="lg"
               className="bg-teal-600 hover:bg-teal-500"
             >

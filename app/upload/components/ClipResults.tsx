@@ -3,7 +3,7 @@ import ClipCard from "./ClipCard";
 import { Clip } from "@/app/types/clip";
 
 export type ClipResultsProps = {
-  clips: Clip[];
+  clips: [];
   originalFileName: string;
 };
 
@@ -26,8 +26,8 @@ const ClipResults = ({ clips, originalFileName }: ClipResultsProps) => {
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4 lg:grid-cols-3">
-        {clips.map((clip) => (
-          <ClipCard key={clip.id} clip={clip} />
+        {clips.map((clip, index) => (
+          <ClipCard key={index} clip={clip} />
         ))}
       </div>
     </div>

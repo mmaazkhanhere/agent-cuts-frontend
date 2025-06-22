@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { Button } from "@/app/components/ui/button";
 import { Upload as UploadIcon } from "lucide-react";
 import ClipProcessing from "../components/ClipProcessing";
@@ -7,109 +7,95 @@ import VideoUploader from "./VideoUploader";
 import SelectedVideoPanel from "./SelectedVideoPanel";
 import ClipResults from "./ClipResults";
 import { Clip } from "@/app/types/clip";
+import videoUpload from "@/lib/services/videoUpload";
+import useProcessingPolling from "@/lib/hooks/useProcessingPolling";
+import segments from "@/lib/services/segments";
 
 // Define status enum
 enum UploadStatus {
   UPLOAD = "UPLOAD",
   UPLOADED = "UPLOADED",
   PROCESSING = "PROCESSING",
-  COMPLETE = "COMPLETE",
+  COMPLETE = "COMPLETE"
 }
 
 const FileProcessingPipeline = () => {
-  const [status, setStatus] = useState<UploadStatus>(UploadStatus.UPLOAD);
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
-  const [uploadProgress, setUploadProgress] = useState(0);
   const [selectedCategory, setSelectedCategory] = useState<string>("");
-  const [generatedClips, setGeneratedClips] = useState<Clip[]>([]);
-  const [currentProcessingStep, setCurrentProcessingStep] = useState(0);
+  const [generatedClips, setGeneratedClips] = useState<[]>([]);
   const fileInputRef = useRef<HTMLInputElement>(null);
+  const [uniquePhrase, setUniquePhrase] = useState<string | null>(null);
+  const [uploadStatus, setUploadStatus] = useState<UploadStatus>(UploadStatus.UPLOAD);
 
-  const mockClips = [
-    {
-      id: "clip1",
-      title: "Top 5 AI Predictions That Will Transform The Tech Industry",
-      url: "/clip.mp4",
-      thumbnail:
-        "https://images.unsplash.com/photo-1633412802994-5c058f151b66?q=80&w=2070&auto=format&fit=crop",
-      viralityScore: 8.7,
-      description:
-        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
-      tags: ["AI", "Tech", "Predictions"],
-    },
-    {
-      id: "clip2",
-      title: "Top 5 AI Predictions That Will Transform The Tech Industry",
-      url: "/clip.mp4",
-      thumbnail:
-        "https://images.unsplash.com/photo-1633412802994-5c058f151b66?q=80&w=2070&auto=format&fit=crop",
-      viralityScore: 8.7,
-      description:
-        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
-      tags: ["AI", "Tech", "Predictions"],
-    },
-    {
-      id: "clip3",
-      title: "Top 5 AI Predictions That Will Transform The Tech Industry",
-      url: "/clip.mp4",
-      thumbnail:
-        "https://images.unsplash.com/photo-1633412802994-5c058f151b66?q=80&w=2070&auto=format&fit=crop",
-      viralityScore: 8.7,
-      description:
-        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
-      tags: ["AI", "Tech", "Predictions"],
-    },
-  ];
-
+  // Updated hook usage with new return values
+  const { 
+    progress, 
+    setProgress,
+    currentStep,
+    setCurrentStep, 
+    completedSteps,
+    isComplete, 
+    error,
+    setError,
+    getStepStatus,
+  } = useProcessingPolling(uniquePhrase);
+  
   // Handle file selection and move to UPLOADED status
   const handleFileSelect = (file: File) => {
     setSelectedFile(file);
-    setStatus(UploadStatus.UPLOADED);
+    setUploadStatus(UploadStatus.UPLOADED);
   };
 
   // Start processing when user clicks process button
-  const startProcessing = () => {
-    if (!selectedFile || !selectedCategory) return;
+  const startProcessing = async () => {
+    if (!selectedFile) return;
+    
+    setUploadStatus(UploadStatus.PROCESSING);
+    try {
+      const result = await videoUpload(selectedFile);
+      console.log(result);
+      setUniquePhrase(result.unique_phrase); // Start polling
+    } catch (error) {
+      console.error('Upload failed:', error);
+      setError("Upload failed. Please try again.")
+    }
+  };
 
-    setStatus(UploadStatus.PROCESSING);
-    setUploadProgress(0);
-    setCurrentProcessingStep(0);
+  const retryProcessing = () => {
+  setError(null);
+  startProcessing();
+};
 
-    // Simulate upload progress
-    const uploadInterval = setInterval(() => {
-      setUploadProgress((prev) => {
-        if (prev >= 100) {
-          clearInterval(uploadInterval);
 
-          // Start processing steps after upload completes
-          const stepInterval = setInterval(() => {
-            setCurrentProcessingStep((step) => {
-              if (step >= 4) {
-                clearInterval(stepInterval);
-                // Processing complete, show results
-                setGeneratedClips(mockClips);
-                setStatus(UploadStatus.COMPLETE);
-                return step;
-              }
-              return step + 1;
-            });
-          }, 2000);
+  // Update UI based on polling status
+  useEffect(() => {
+    if (isComplete && uploadStatus === UploadStatus.PROCESSING) {
+      setUploadStatus(UploadStatus.COMPLETE);
+      fetchSegments();
+    }
+  }, [isComplete, uploadStatus]);
 
-          return 100;
-        }
-        return prev + 2;
-      });
-    }, 100);
+  // Fetch segments when processing is complete
+  const fetchSegments = async () => {
+    if (!uniquePhrase) return;
+    try {
+      const data = await segments(uniquePhrase);
+      setGeneratedClips(data.segments);
+    } catch (error) {
+      console.error("Error fetching segments:", error);
+      setError("Failed to load your video clips. Please try again.");
+    }
   };
 
   // Reset everything to initial state
   const resetUpload = () => {
-    setStatus(UploadStatus.UPLOAD);
     setSelectedFile(null);
     setSelectedCategory("");
-    setUploadProgress(0);
-    setCurrentProcessingStep(0);
+    setProgress(0);
+    setCurrentStep("uploaded");
     setGeneratedClips([]);
+    setUniquePhrase(null);
+    setUploadStatus(UploadStatus.UPLOAD);
     if (fileInputRef.current) {
       fileInputRef.current.value = "";
     }
@@ -117,7 +103,7 @@ const FileProcessingPipeline = () => {
 
   // Render component based on current status
   const renderCurrentStep = () => {
-    switch (status) {
+    switch (uploadStatus) {
       case UploadStatus.UPLOAD:
         return (
           <VideoUploader
@@ -141,9 +127,13 @@ const FileProcessingPipeline = () => {
       case UploadStatus.PROCESSING:
         return (
           <ClipProcessing
-            fileName={selectedFile?.name || "Unknown file"}
-            progress={uploadProgress + currentProcessingStep * 25}
-            currentStep={currentProcessingStep}
+            progress={progress}
+            currentStep={currentStep}
+            completedSteps={completedSteps}
+            error={error}
+            getStepStatus={getStepStatus}
+            retryProcessing={retryProcessing}
+            onReset={resetUpload}
           />
         );
 
