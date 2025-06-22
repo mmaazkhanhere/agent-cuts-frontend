@@ -45,7 +45,7 @@ const Navbar = () => {
           {/* Desktop CTA Button */}
           <div className="hidden md:block">
             <Button className="bg-teal-600 hover:bg-teal-500 text-white">
-              <Link href="/upload">Get Started</Link>
+              <Link href="/upload">Upload</Link>
             </Button>
           </div>
 
