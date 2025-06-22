@@ -34,8 +34,6 @@ The project focuses on a smooth user experience with real-time feedback, intuiti
 
 - **react-toastify** - Elegant toast notifications for success/error feedback
 
-- **socket.io-client** - Real-time, event-based communication
-
 ## ⚙️ Getting Started
 
 ```bash
@@ -47,6 +45,13 @@ cd agent-cuts-frontend
 
 # Install dependencies
 npm install
+
+# Create a `.env` file in the root directory and add the following:
+
+```env
+NEXT_PUBLIC_BACKEND_URL=back-end-url
+
+Replace back-end-url with the actual URL of your backend server
 
 # Run the dev server
 npm run dev
