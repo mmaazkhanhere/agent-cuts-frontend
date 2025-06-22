@@ -79,7 +79,7 @@ const FileProcessingPipeline = () => {
     if (!uniquePhrase) return;
     try {
       const data = await segments(uniquePhrase);
-      console.log(segment)
+      console.log(data)
       setGeneratedClips(data.segments);
     } catch (error) {
       console.error("Error fetching segments:", error);

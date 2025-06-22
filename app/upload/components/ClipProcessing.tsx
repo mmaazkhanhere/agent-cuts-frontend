@@ -2,9 +2,7 @@ import React from "react";
 import ProcessingStepper from "./ProcessingStepper";
 import ProcessingError from "./ProcessingError";
 
-/**
- * Props for the ClipProcessing component
- */
+
 type ClipProcessingProps = {
   progress: number;
   currentStep: string;
@@ -16,7 +14,6 @@ type ClipProcessingProps = {
 }
 
 /**
- * ClipProcessing Component
  * Displays a visual progress tracker for video processing steps
  */
 const ClipProcessing = ({
@@ -46,11 +43,9 @@ const ClipProcessing = ({
         </p>
         
         <div className=" md:mt-20 mt-8">
-           {/* Current step indicator */}
           <div className="text-teal-400 font-medium mt-8">
           {currentStep} {progress}%
         </div>
-        {/* Add the new stepper */}
         <ProcessingStepper 
           currentStep={currentStep}
           getStepStatus={getStepStatus}

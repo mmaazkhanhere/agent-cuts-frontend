@@ -37,7 +37,6 @@ const useProcessingPolling = (uniquePhrase: string | null, interval = 2000) => {
         setProgress(data.progress.percentage);
         setCurrentStep(data.progress.current_step);
 
-        // Use the steps_completed from backend if available
         const backendCompletedSteps = data.progress.steps_completed;
         
         // Merge both sources of truth for completed steps

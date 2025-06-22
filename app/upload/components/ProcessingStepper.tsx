@@ -32,10 +32,8 @@ const ProcessingStepper = ({
           }else if (isActive) {
               connectorProgress = 50
           } else if (index === activeStepIndex - 1) {
-            // The step before the active one should show partial progress
             connectorProgress = progress;
           } else if (index < activeStepIndex) {
-            // Steps before the active one should be fully completed
             connectorProgress = 100;
           }
 

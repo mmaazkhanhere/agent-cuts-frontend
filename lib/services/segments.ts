@@ -4,7 +4,7 @@ const segments = async (uniquePhrase: string) => {
 
       if(!response.ok){
         const error = await response.json();
-        throw new Error(error.detail || 'Failed to fetch segments');
+        throw new Error('Failed to fetch segments', error);
       }
       const data = await response.json();
       console.log(data)
