@@ -1,5 +1,5 @@
 import React from "react";
-import { Clip } from "@/app/types/clip";
+import { Clip } from "@/types/clip";
 
 type props = {
   clip: Clip;

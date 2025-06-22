@@ -1,5 +1,5 @@
 import { Upload, Cpu, Scissors, Download } from "lucide-react";
-import { VideoStepDetail } from "../types/VideoStepDetail";
+import { VideoStepDetail } from "../../types/VideoStepDetail";
 
 export const VideoStepDetails: VideoStepDetail[] = [
   {

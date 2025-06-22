@@ -1,8 +1,8 @@
 import React from "react";
 import { Card, CardContent } from "@/app/components/ui/card";
-import { Flame } from "lucide-react";
+import { Gauge } from "lucide-react";
 import { cn } from "@/lib/utils/classNames";
-import { Clip } from "@/app/types/clip";
+import { Clip } from "@/types/clip";
 import ClipCardContentSetion from "./ClipCardContentSetion";
 
 // type ClipCardProps = {
@@ -40,29 +40,29 @@ const ClipCard = ({ clip }) => {
             <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-transparent to-transparent pointer-events-none" />
 
             {/* Virality Score Badge */}
-            <div
+            {/* <div
               className={cn(
                 "absolute top-4 right-4 px-3 py-1.5 rounded-full border backdrop-blur-sm transition-all duration-300",
                 getViralityBadgeStyle(clip.viralityScore)
               )}
             >
-              {/* <div className="flex items-center gap-1.5">
-                <Flame
+              <div className="flex items-center gap-1.5">
+                <Gauge
                   className={cn(
                     "h-4 w-4",
-                    getViralityColor(clip.viralityScore)
+                    // getViralityColor(clip.viralityScore)
                   )}
                 />
                 <span
                   className={cn(
                     "text-sm font-bold",
-                    getViralityColor(clip.viralityScore)
+                    // getViralityColor(clip.viralityScore)
                   )}
                 >
-                  {clip.viralityScore}
+                  {clip.size_mb} MB
                 </span>
-              </div> */}
-            </div>
+              </div>
+            </div> */}
           </div>
         </div>
 

@@ -7,7 +7,7 @@ import {
   Video,
 } from "lucide-react";
 
-import { Feature } from "../types/feature";
+import { Feature } from "../../types/feature";
 
 export const features: Feature[] = [
   {

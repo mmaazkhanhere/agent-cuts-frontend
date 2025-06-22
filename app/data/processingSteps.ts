@@ -1,5 +1,5 @@
 import { Settings, FileText, Braces, Wand2, SplitSquareVertical, VideoIcon } from "lucide-react";
-import { VideoProcessingStep } from "../types/VideoProcessingStep";
+import { VideoProcessingStep } from "../../types/VideoProcessingStep";
 
  
 export const processingSteps: VideoProcessingStep[] = [

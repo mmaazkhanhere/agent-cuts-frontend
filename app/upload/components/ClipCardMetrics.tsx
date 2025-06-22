@@ -9,7 +9,7 @@ import {
   DialogTrigger,
 } from "@/app/components/ui/dialog";
 import { BarChart3 } from "lucide-react";
-import { Clip } from "../../types/clip";
+import { Clip } from "../../../types/clip";
 
 type props = {
   clip: Clip;

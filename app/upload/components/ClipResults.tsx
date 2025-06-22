@@ -1,6 +1,6 @@
 import React from "react";
 import ClipCard from "./ClipCard";
-import { Clip } from "@/app/types/clip";
+import { Clip } from "@/types/clip";
 
 export type ClipResultsProps = {
   clips: [];

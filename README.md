@@ -34,6 +34,40 @@ The project focuses on a smooth user experience with real-time feedback, intuiti
 
 - **react-toastify** - Elegant toast notifications for success/error feedback
 
+## 📁 Project Structure
+
+agent-cuts-frontend/
+├── 📁 public/                # Static assets
+├── 📁 types/                 # TypeScript types 
+│
+├── 📁 app/                   
+│   ├── 📁 components/        # Reusable UI components
+│   │   ├── 📁 ui/            # ShadCN components
+│   │   └── Navbar.tsx
+│   │   └── Footer.tsx
+|   |
+│   ├── 📁 constants/         # App constants 
+│   ├── 📁 data/              
+│   │
+│   ├── layout.tsx            # Root layout
+│   ├── page.tsx              # Home page
+│   ├── globals.css           # Global styles
+│   │
+|   ├── 📁 home/              #home page components
+│   ├── 📁 about/             # About page
+│   │   ├── page.tsx
+│   │   └── components/       # Page-specific components
+│   │
+│   └── 📁 upload/            # Upload page
+│       ├── page.tsx
+│       └── components/       # Page-specific components
+│
+├── 📁 lib/                   # Non-UI logic
+│   ├── 📁 hooks/             # Custom React hooks
+│   ├── 📁 services/          # API services (fetch wrappers)
+│   └── 📁 utils/             # Utility functions
+│
+
 ## ⚙️ Getting Started
 
 ```bash
@@ -49,7 +83,6 @@ npm install
 # Create a `.env` file in the root directory and add the following:
 
 NEXT_PUBLIC_BACKEND_URL=back-end-url
-
 Replace back-end-url with the actual URL of your backend server
 
 # Run the dev server

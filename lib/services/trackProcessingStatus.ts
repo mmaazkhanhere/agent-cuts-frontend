@@ -1,4 +1,4 @@
-import { BackendProgress } from "@/app/types/BackendProgress";
+import { BackendProgress } from "@/types/BackendProgress";
 
 const trackProcessingStatus = async (uniquePhrase: string): Promise<BackendProgress> => {
   try {

@@ -6,7 +6,7 @@ import ClipProcessing from "../components/ClipProcessing";
 import VideoUploader from "./VideoUploader";
 import SelectedVideoPanel from "./SelectedVideoPanel";
 import ClipResults from "./ClipResults";
-import { Clip } from "@/app/types/clip";
+import { Clip } from "@/types/clip";
 import videoUpload from "@/lib/services/videoUpload";
 import useProcessingPolling from "@/lib/hooks/useProcessingPolling";
 import segments from "@/lib/services/segments";

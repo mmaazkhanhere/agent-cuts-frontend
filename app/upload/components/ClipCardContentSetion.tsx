@@ -4,7 +4,7 @@ import { Download } from "lucide-react";
 import { toast } from "sonner";
 import ClipCardMetrics from "./ClipCardMetrics";
 import ClipCardTags from "./ClipCardTags";
-import { Clip } from "@/app/types/clip";
+import { Clip } from "@/types/clip";
 import downloadSegment from "@/lib/services/downloadSegment";
 
 type props = {
