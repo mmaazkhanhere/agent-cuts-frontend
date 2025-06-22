@@ -44,7 +44,7 @@ const Hero = () => {
         </h1>
 
         <p className="text-xl md:text-2xl text-gray-300 mb-12 max-w-3xl mx-auto leading-relaxed animate-fade-in">
-          ClipGenius automatically transforms your podcasts, interviews, and
+          AgentCuts automatically transforms your podcasts, interviews, and
           lectures into TikTok & YouTube Shorts-ready clips.
         </p>
 

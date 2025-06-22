@@ -11,7 +11,7 @@ const VideoDemo = () => {
           {" "}
           <h2 className="text-4xl md:text-5xl font-bold mb-4 text-glow">
             <span className="bg-gradient-to-r from-teal-400 to-teal-600 bg-clip-text text-transparent">
-              See ClipGenius in Action
+              See AgentCuts in Action
             </span>
           </h2>
           <p className="text-xl text-gray-400">

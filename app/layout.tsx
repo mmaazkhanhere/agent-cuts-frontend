@@ -16,7 +16,7 @@ const roboto = Roboto({
 });
 
 export const metadata: Metadata = {
-  title: "ClipGenius",
+  title: "AgentCuts",
   description:
     "Automatically convert long-form videos into engaging short clips for TikTok, YouTube Shorts, and Reels with AI precision",
 };

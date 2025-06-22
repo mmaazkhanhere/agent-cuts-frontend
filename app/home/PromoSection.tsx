@@ -32,7 +32,7 @@ const PromoSection = () => {
           className="ffont-medium text-lg bg-white text-teal-800 hover:bg-gray-100"
         >
           <Link href="/upload">
-            Try ClipGenius Now <ArrowRight className="ml-2 h-5 w-5" />
+            Try AgentCuts Now <ArrowRight className="ml-2 h-5 w-5" />
           </Link>
         </Button>
       </motion.div>

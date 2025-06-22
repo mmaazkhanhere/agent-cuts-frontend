@@ -32,7 +32,7 @@ export const features: Feature[] = [
     icon: Clock,
     title: "Time Saving",
     description:
-      "What normally takes hours of editing can now be done in minutes with ClipGenius.",
+      "What normally takes hours of editing can now be done in minutes with AgentCuts.",
   },
   {
     icon: Sparkles,

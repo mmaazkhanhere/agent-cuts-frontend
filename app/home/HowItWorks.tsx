@@ -10,7 +10,7 @@ const HowItWorks = () => {
       <div className="container px-4 mx-auto relative z-10">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <h2 className="text-3xl md:text-4xl text-glow font-bold mb-4 bg-gradient-to-r from-teal-400 to-teal-600 bg-clip-text text-transparent">
-            How ClipGenius Works
+            How AgentCuts Works
           </h2>
           <p className="text-lg text-gray-400">
             Transform your long-form content into viral short-form videos in

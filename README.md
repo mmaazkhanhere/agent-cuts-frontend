@@ -1,10 +1,10 @@
-# ClipGenius - Automated Long-Form Video Repurposing
+# AgentCuts - Automated Long-Form Video Repurposing
 
 **Hackathon Project - Google Cloud ADK Hackathon**
 
 ## 📌 Project Overview
 
-**ClipGenius** is an AI-powered frontend interface developed for the Google Cloud ADK Hackathon. It enables users to upload long-form videos (like podcasts and lectures), which are then processed into short-form clips optimized for platforms such as **TikTok** and **YouTube Shorts**.
+**AgentCuts** is an AI-powered frontend interface developed for the Google Cloud ADK Hackathon. It enables users to upload long-form videos (like podcasts and lectures), which are then processed into short-form clips optimized for platforms such as **TikTok** and **YouTube Shorts**.
 
 The project focuses on a smooth user experience with real-time feedback, intuitive design, and modern UI animations.
 
@@ -48,7 +48,6 @@ npm install
 
 # Create a `.env` file in the root directory and add the following:
 
-```env
 NEXT_PUBLIC_BACKEND_URL=back-end-url
 
 Replace back-end-url with the actual URL of your backend server

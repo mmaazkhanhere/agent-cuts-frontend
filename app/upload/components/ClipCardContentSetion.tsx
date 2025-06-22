@@ -11,30 +11,25 @@ type props = {
   clip: Clip;
 };
 
+// Content section for a clip card, handling display and download functionality.
 const ClipCardContentSetion = ({ clip }) => {
 
   const [isDownloading, setIsDownloading] = useState(false)
 
   const handleDownload = async () => {
      if (!clip.uniquePhrase) {
-      toast.error("Download failed", {
-        description: "Missing download information.",
-      });
+      toast.error("Download failed");
       return;
     }
-
     setIsDownloading(true);
     
     try {
       await downloadSegment(clip.uniquePhrase, clip.index, clip.filename);
-      
-      toast.success("Download started!", {
-        description: `${clip.filename} is being downloaded.`,
-      });
+      toast.success("Download started!");
+
     } catch (error) {
-      toast.error("Download failed", {
-        description: error instanceof Error ? error.message : "Unknown error occurred.",
-      });
+      toast.error("Download failed");
+      throw error;
     } finally {
       setIsDownloading(false);
     }

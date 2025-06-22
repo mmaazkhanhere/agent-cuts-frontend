@@ -14,7 +14,7 @@ const Features = () => {
             </span>
           </h2>
           <p className="text-xl text-gray-400 max-w-3xl mx-auto">
-            ClipGenius handles the hard work—so you can focus on creating
+            AgentCuts handles the hard work—so you can focus on creating
           </p>
         </div>
 
