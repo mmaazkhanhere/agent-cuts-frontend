@@ -1,5 +1,5 @@
 import React from "react";
-import { Progress } from "@/app/components/ui/progress";
+// import { Progress } from "@/app/components/ui/progress";
 import { Button } from "@/app/components/ui/button";
 import {
   Dialog,
@@ -9,51 +9,47 @@ import {
   DialogTrigger,
 } from "@/app/components/ui/dialog";
 import { BarChart3 } from "lucide-react";
-import { Clip } from "../../../types/clip";
+// import { Clip } from "../../../types/clip";
 
-type props = {
-  clip: Clip;
-};
+// type props = {
+//   clip: Clip;
+// };
 
-const ClipCardMetrics = ({ clip }: props) => {
+const ClipCardMetrics = ({  }) => {
   // Generate mock metrics based on virality score
-  const clarityScore = Math.min(clip.viralityScore + Math.random() * 15, 100);
-  const readabilityScore = Math.max(
-    clip.viralityScore - 10 + Math.random() * 25,
-    30
-  );
-  const contentRelevance = Math.min(
-    clip.viralityScore + Math.random() * 20,
-    100
-  );
-  const processingConfidence = Math.max(
-    clip.viralityScore - 5 + Math.random() * 15,
-    40
-  );
+  // const clarityScore = Math.min(clip.viralityScore + Math.random() * 15, 100);
+  // const readabilityScore = Math.max(
+  //   clip.viralityScore - 10 + Math.random() * 25,
+  //   30
+  // );
+  // const contentRelevance = Math.min(
+  //   clip.viralityScore + Math.random() * 20,
+  //   100
+  // );
+  // const processingConfidence = Math.max(
+  //   clip.viralityScore - 5 + Math.random() * 15,
+  //   40
+  // );
 
-  const MetricItem = ({
-    label,
-    value,
-    score,
-  }: {
-    label: string;
-    value: string;
-    score: number;
-  }) => (
-    <div className="space-y-2">
-      <div className="flex items-center justify-between">
-        <span className="text-sm text-gray-400 font-medium">{label}</span>
-        <span className="text-sm text-white font-semibold">{value}</span>
-      </div>
-      <div className="relative">
-        <Progress value={score} className="h-2 bg-gray-700/50" />
-        <div
-          className="absolute top-0 left-0 h-2 rounded-full bg-gradient-to-r from-teal-400 to-teal-600 transition-all duration-700 ease-out"
-          style={{ width: `${score}%` }}
-        />
-      </div>
-    </div>
-  );
+  // const MetricItem = ({ label, value, score, }: {
+  //   label: string;
+  //   value: string;
+  //   score: number;
+  // }) => (
+  //   <div className="space-y-2">
+  //     <div className="flex items-center justify-between">
+  //       <span className="text-sm text-gray-400 font-medium">{label}</span>
+  //       <span className="text-sm text-white font-semibold">{value}</span>
+  //     </div>
+  //     <div className="relative">
+  //       <Progress value={score} className="h-2 bg-gray-700/50" />
+  //       <div
+  //         className="absolute top-0 left-0 h-2 rounded-full bg-gradient-to-r from-teal-400 to-teal-600 transition-all duration-700 ease-out"
+  //         style={{ width: `${score}%` }}
+  //       />
+  //     </div>
+  //   </div>
+  // );
 
   return (
     <Dialog>
@@ -74,7 +70,7 @@ const ClipCardMetrics = ({ clip }: props) => {
           </DialogTitle>
         </DialogHeader>
 
-        <div className="space-y-4 mt-4">
+        {/* <div className="space-y-4 mt-4">
           <MetricItem
             label="Clarity Score"
             value={`${clarityScore.toFixed(1)}%`}
@@ -95,7 +91,7 @@ const ClipCardMetrics = ({ clip }: props) => {
             value={`${processingConfidence.toFixed(1)}%`}
             score={processingConfidence}
           />
-        </div>
+        </div> */}
       </DialogContent>
     </Dialog>
   );

@@ -14,7 +14,7 @@ const AboutPage = () => {
             </span>
           </h2>
         <p className="text-xl text-gray-400  my-8">
-          We're a passionate team of developers working together to
+          We are a passionate team of developers working together to
           revolutionize video editing through AI. Agent Cuts is the result of
           our combined expertise in both frontend and backend development.
         </p>

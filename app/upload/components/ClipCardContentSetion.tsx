@@ -4,15 +4,15 @@ import { Download } from "lucide-react";
 import { toast } from "sonner";
 import ClipCardMetrics from "./ClipCardMetrics";
 import ClipCardTags from "./ClipCardTags";
-import { Clip } from "@/types/clip";
 import downloadSegment from "@/lib/services/downloadSegment";
+import { SegmentType } from "@/types/segment";
 
-type props = {
-  clip: Clip;
-};
 
+type clipProps = {
+  clip: SegmentType
+}
 // Content section for a clip card, handling display and download functionality.
-const ClipCardContentSetion = ({ clip }) => {
+const ClipCardContentSetion = ({ clip }: clipProps) => {
 
   const [isDownloading, setIsDownloading] = useState(false)
 
@@ -22,7 +22,6 @@ const ClipCardContentSetion = ({ clip }) => {
       return;
     }
     setIsDownloading(true);
-    
     try {
       await downloadSegment(clip.uniquePhrase, clip.index, clip.filename);
       toast.success("Download started!");
@@ -40,10 +39,12 @@ const ClipCardContentSetion = ({ clip }) => {
         <h3 className="font-bold text-white leading-tight line-clamp-2 group-hover:text-teal-400 transition-colors duration-300">
           {clip.filename}
         </h3>
-        {/* <p className="text-slate-400 text-sm">{clip.description}</p> */}
+        <p className="text-slate-400 text-sm">
+          {/* {clip.description} */}
+          </p>
       </div>
-      {/* <ClipCardTags clip={clip} /> */}
-      {/* <ClipCardMetrics clip={clip} /> */}
+      <ClipCardTags  />
+      <ClipCardMetrics />
       <Button
         onClick={handleDownload}
         disabled={isDownloading}

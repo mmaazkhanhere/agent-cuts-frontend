@@ -1,12 +1,12 @@
 import React from "react";
 import ClipCard from "./ClipCard";
-import { Clip } from "@/types/clip";
+import { SegmentType } from "@/types/segment";
 
 export type ClipResultsProps = {
-  clips: [];
+  segments: SegmentType[];
 };
 
-const ClipResults = ({ clips }: ClipResultsProps) => {
+const ClipResults = ({ segments }: ClipResultsProps) => {
   return (
     <div className="w-full max-w-6xl mx-auto animate-fade-in">
       <div className="text-center mb-20">
@@ -20,8 +20,8 @@ const ClipResults = ({ clips }: ClipResultsProps) => {
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6 lg:grid-cols-3">
-        {clips.map((clip, index) => (
-          <ClipCard key={index} clip={clip} />
+        {segments.map((segment, index) => (
+          <ClipCard key={index} segment={segment} />
         ))}
       </div>
     </div>

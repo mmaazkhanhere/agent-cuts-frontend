@@ -1,9 +1,7 @@
+import {SegmentType } from "./segment";
 export type Clip = {
-  id: string;
-  title: string;
-  url: string;
-  thumbnail: string;
-  viralityScore: number;
-  description: string;
-  tags: string[];
+  unique_phrase: string;
+  status: string;
+  total_segments: number;
+  segments: SegmentType[];
 };

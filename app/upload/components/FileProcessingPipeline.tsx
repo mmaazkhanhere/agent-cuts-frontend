@@ -6,10 +6,10 @@ import ClipProcessing from "../components/ClipProcessing";
 import VideoUploader from "./VideoUploader";
 import SelectedVideoPanel from "./SelectedVideoPanel";
 import ClipResults from "./ClipResults";
-import { Clip } from "@/types/clip";
 import videoUpload from "@/lib/services/videoUpload";
 import useProcessingPolling from "@/lib/hooks/useProcessingPolling";
 import segments from "@/lib/services/segments";
+import { SegmentType } from "@/types/segment";
 
 // Define status enum
 enum UploadStatus {
@@ -22,7 +22,7 @@ enum UploadStatus {
 const FileProcessingPipeline = () => {
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
   const [selectedCategory, setSelectedCategory] = useState<string>("");
-  const [generatedClips, setGeneratedClips] = useState<[]>([]);
+  const [generatedClips, setGeneratedClips] = useState< SegmentType[]>([]);
   const fileInputRef = useRef<HTMLInputElement>(null);
   const [uniquePhrase, setUniquePhrase] = useState<string | null>(null);
   const [uploadStatus, setUploadStatus] = useState<UploadStatus>(UploadStatus.UPLOAD);
@@ -52,7 +52,6 @@ const FileProcessingPipeline = () => {
     setUploadStatus(UploadStatus.PROCESSING);
     try {
       const result = await videoUpload(selectedFile);
-      console.log(result);
       setUniquePhrase(result.unique_phrase); // Start polling
     } catch (error) {
       console.error('Upload failed:', error);
@@ -79,7 +78,6 @@ const FileProcessingPipeline = () => {
     if (!uniquePhrase) return;
     try {
       const data = await segments(uniquePhrase);
-      console.log(data)
       setGeneratedClips(data.segments);
     } catch (error) {
       console.error("Error fetching segments:", error);
@@ -140,7 +138,7 @@ const FileProcessingPipeline = () => {
         return (
           <div className="space-y-6">
             <ClipResults
-              clips={generatedClips}
+              segments={generatedClips}
             />
             <div className="text-center">
               <Button onClick={resetUpload} variant="outline" size="lg">
