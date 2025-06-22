@@ -37,36 +37,38 @@ The project focuses on a smooth user experience with real-time feedback, intuiti
 ## 📁 Project Structure
 
 agent-cuts-frontend/
-├── 📁 public/                # Static assets
-├── 📁 types/                 # TypeScript types 
+├── 📁 public/                          # Static assets
+├── 📁 types/                           # TypeScript types
 │
-├── 📁 app/                   
-│   ├── 📁 components/        # Reusable UI components
-│   │   ├── 📁 ui/            # ShadCN components
-│   │   └── Navbar.tsx
-│   │   └── Footer.tsx
-|   |
-│   ├── 📁 constants/         # App constants 
-│   ├── 📁 data/              
+├── 📁 app/                             # Next.js App Router
+│   ├── 📁 components/                  # Reusable UI components
+│   │   ├── 📁 ui/                      # ShadCN components
+│   │   ├── Navbar.tsx                  # Navigation component
+│   │   └── Footer.tsx                  # Footer component
 │   │
-│   ├── layout.tsx            # Root layout
-│   ├── page.tsx              # Home page
-│   ├── globals.css           # Global styles
+│   ├── 📁 constants/                   # App constants
+│   ├── 📁 data/                        # Static data files
 │   │
-|   ├── 📁 home/              #home page components
-│   ├── 📁 about/             # About page
-│   │   ├── page.tsx
-│   │   └── components/       # Page-specific components
+│   ├── layout.tsx                      # Root layout
+│   ├── page.tsx                        # Home page
+│   ├── globals.css                     # Global styles
 │   │
-│   └── 📁 upload/            # Upload page
-│       ├── page.tsx
-│       └── components/       # Page-specific components
+│   ├── 📁 home/                        # Home page components
+│   │
+│   ├── 📁 about/                       # About page
+│   │   ├── page.tsx                    # About page component
+│   │   └── 📁 components/              # Page-specific components
+│   │
+│   └── 📁 upload/                      # Upload page
+│       ├── page.tsx                    # Upload page component
+│       └── 📁 components/              # Page-specific components
 │
-├── 📁 lib/                   # Non-UI logic
-│   ├── 📁 hooks/             # Custom React hooks
-│   ├── 📁 services/          # API services (fetch wrappers)
-│   └── 📁 utils/             # Utility functions
+├── 📁 lib/                             # Non-UI logic
+│   ├── 📁 hooks/                       # Custom React hooks
+│   ├── 📁 services/                    # API services (fetch wrappers)
+│   └── 📁 utils/                       # Utility functions
 │
+
 
 ## ⚙️ Getting Started
 
