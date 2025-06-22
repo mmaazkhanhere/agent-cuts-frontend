@@ -1,15 +1,15 @@
 import React from "react";
 import { Card, CardContent } from "@/app/components/ui/card";
 import { Flame } from "lucide-react";
-import { cn } from "@/lib/utils";
+import { cn } from "@/lib/utils/classNames";
 import { Clip } from "@/app/types/clip";
 import ClipCardContentSetion from "./ClipCardContentSetion";
 
-type ClipCardProps = {
-  clip: Clip;
-};
+// type ClipCardProps = {
+//   clip: [];
+// };
 
-const ClipCard = ({ clip }: ClipCardProps) => {
+const ClipCard = ({ clip }) => {
   const getViralityColor = (score: number) => {
     if (score >= 8) return "text-emerald-400";
     if (score >= 5) return "text-amber-400";
@@ -29,10 +29,10 @@ const ClipCard = ({ clip }: ClipCardProps) => {
           <div className="aspect-video w-[100%] h-[400px] relative group">
             <video
               className="w-[100%] h-[100%] object-cover transition-transform duration-700 group-hover:scale-105"
-              poster={clip.thumbnail}
+              // poster={clip.thumbnail}
               controls
               preload="metadata"
-              src={clip.url}
+              src={`http://localhost:8000${clip.download_url}`}
             >
               Your browser does not support the video tag.
             </video>
@@ -47,7 +47,7 @@ const ClipCard = ({ clip }: ClipCardProps) => {
                 getViralityBadgeStyle(clip.viralityScore)
               )}
             >
-              <div className="flex items-center gap-1.5">
+              {/* <div className="flex items-center gap-1.5">
                 <Flame
                   className={cn(
                     "h-4 w-4",
@@ -62,7 +62,7 @@ const ClipCard = ({ clip }: ClipCardProps) => {
                 >
                   {clip.viralityScore}
                 </span>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>
