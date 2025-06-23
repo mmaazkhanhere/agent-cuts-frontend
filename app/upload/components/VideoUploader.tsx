@@ -82,10 +82,10 @@ const VideoUploader = ({
 
       {/* File upload area (only shown when no file is selected) */}
       {!selectedFile && (
-        <Card className="bg-gray-800 border-gray-700">
-          <CardContent>
+        <Card className="bg-gray-800 border-gray-700 md:py-6 py-4">
+          <CardContent className="md:px-6 px-4">
             <div
-              className="border-2 border-dashed border-gray-600 rounded-lg md:p-12 p-8 text-center hover:border-teal-500 transition-colors cursor-pointer"
+              className="border-2 border-dashed border-gray-600 rounded-lg md:p-12 p-4 text-center hover:border-teal-500 transition-colors cursor-pointer"
               onDragOver={handleDragOver}
               onDrop={handleDrop}
               onClick={() => fileInputRef.current?.click()}

@@ -52,6 +52,7 @@ const FileProcessingPipeline = () => {
     setUploadStatus(UploadStatus.PROCESSING);
     try {
       const result = await videoUpload(selectedFile);
+      console.log(result)
       setUniquePhrase(result.unique_phrase); // Start polling
     } catch (error) {
       console.error('Upload failed:', error);

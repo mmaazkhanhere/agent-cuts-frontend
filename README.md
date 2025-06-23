@@ -58,11 +58,11 @@ agent-cuts-frontend/
 │   ├── 📁 home/                        # Home page components
 │   │
 │   ├── 📁 about/                       # About page
-│   │   ├── page.tsx                    # About page component
+│   │   ├── page.tsx                    # About page
 │   │   └── 📁 components/              # Page-specific components
 │   │
 │   └── 📁 upload/                      # Upload page
-│       ├── page.tsx                    # Upload page component
+│       ├── page.tsx                    # Upload page 
 │       └── 📁 components/              # Page-specific components
 │
 ├── 📁 lib/                             # Non-UI logic
@@ -86,8 +86,8 @@ cd agent-cuts-frontend
 npm install
 
 # Create a `.env` file in the root directory and add the following:
-
 NEXT_PUBLIC_BACKEND_URL=back-end-url
+
 Replace back-end-url with the actual URL of your backend server
 
 # Run the dev server

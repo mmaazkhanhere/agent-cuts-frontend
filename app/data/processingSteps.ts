@@ -1,4 +1,4 @@
-import { Settings, FileText, Braces, Wand2, SplitSquareVertical, VideoIcon } from "lucide-react";
+import { Settings, FileText, Braces, Wand2, SplitSquareVertical, VideoIcon, Check } from "lucide-react";
 import { VideoProcessingStep } from "../../types/VideoProcessingStep";
 
  
@@ -10,27 +10,32 @@ export const processingSteps: VideoProcessingStep[] = [
     },
     {
       id: "transcribing",
-      title: "Transcribing",
+      title: "Transcribing Audio",
       Icon: FileText,
     },
     {
       id: "segmenting",
-      title: "Analyzing",
+      title: "Segmenting Content",
       Icon: Braces,
     },
     {
       id: "ranking",
-      title: "Ranking",
+      title: "Ranking Segments",
       Icon: Wand2,
     },
     {
       id: "cutting_video",
-      title: "Cutting",
+      title: "Cutting Video",
       Icon: SplitSquareVertical,
     },
     {
       id: "generating_copy",
-      title: "Copywriting",
+      title: "Text Generation",
       Icon: VideoIcon,
     },
+    {
+      id: "completed",
+      title: "Completed",
+      Icon: Check,
+    }
   ];

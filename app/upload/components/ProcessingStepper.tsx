@@ -16,8 +16,14 @@ const ProcessingStepper = ({
 
   // Calculate the active step index
   const activeStepIndex = processingSteps.findIndex(step => step.id === currentStep);
+  const activeStep = processingSteps.find(step => step.id === currentStep);
 
   return (
+    <div className=" md:mt-20 mt-8">
+    <div className="text-teal-400 font-medium mt-8">
+        {activeStep?.title} {progress}%
+    </div>
+    
     <div className="w-full py-14">
       <div className="flex items-center justify-center">
         {processingSteps.map((step, index) => {
@@ -101,6 +107,7 @@ const ProcessingStepper = ({
           );
         })}
       </div>
+    </div>
     </div>
   );
 };

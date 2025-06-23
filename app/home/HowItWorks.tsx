@@ -5,7 +5,7 @@ import { VideoStepDetails } from "../data/VideoStepDetails";
 
 const HowItWorks = () => {
   return (
-    <section className="py-20 relative overflow-hidden">
+    <section className="py-20 relative overflow-hidden" id="HowItWorks">
       <div className="absolute inset-0 z-0 bg-[radial-gradient(circle_at_bottom_left,#b964ff20,transparent_50%)]"></div>
       <div className="container px-4 mx-auto relative z-10">
         <div className="text-center max-w-3xl mx-auto mb-16">

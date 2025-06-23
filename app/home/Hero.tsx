@@ -62,7 +62,7 @@ const Hero = () => {
             size="lg"
             className="border-teal-500 text-teal-400 hover:bg-teal-500/10 px-8 py-4 text-lg font-semibold rounded-xl transition-all duration-300 hover:scale-105"
           >
-            <Link href="/about">Learn More</Link>
+            <Link href="#HowItWorks">Learn More</Link>
           </Button>
         </div>
       </div>

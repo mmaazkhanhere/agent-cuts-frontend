@@ -42,16 +42,12 @@ const ClipProcessing = ({
           Our AI is analyzing your video and creating engaging clips.
         </p>
         
-        <div className=" md:mt-20 mt-8">
-          <div className="text-teal-400 font-medium mt-8">
-          {currentStep} {progress}%
-        </div>
+        
         <ProcessingStepper 
           currentStep={currentStep}
           getStepStatus={getStepStatus}
           progress={progress}
         />
-        </div>
       </div>
 
     </div>
