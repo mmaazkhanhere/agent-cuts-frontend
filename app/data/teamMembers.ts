@@ -2,21 +2,21 @@ export const teamMembers = [
   {
     name: "Mian Maaz Ullah Khan",
     role: "AI Engineer",
-    image: "/maaz.jpeg",
+    image: "/images/maaz.jpeg",
   },
   {
     name: "Muhammad Abdullah",
     role: "Cloud Engineer",
-    image: "/abdullah.jpeg",
+    image: "/images/abdullah.jpeg",
   },
   {
     name: "Fatima Moumni",
     role: " Front-End Engineer",
-    image: "/fatima.jpeg",
+    image: "/images/fatima.jpeg",
   },
   {
     name: "Furqan Nasir",
     role: "Project Engineer",
-    image: "/furqan.jpeg",
+    image: "/images/furqan.jpeg",
   },
 ]
