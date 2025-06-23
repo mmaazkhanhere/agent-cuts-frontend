@@ -21,7 +21,7 @@ const VideoDemo = () => {
         </div>
         <div className="relative max-w-4xl mx-auto rounded-lg overflow-hidden shadow-xl">
           <video className="w-full h-auto" autoPlay={true} loop muted>
-            <source src="/demo.mp4" type="video/mp4" />
+            <source src="/agent-demo.mp4" type="video/mp4" />
             Your browser does not support the video tag.
           </video>
         </div>
