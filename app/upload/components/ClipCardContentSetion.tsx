@@ -3,7 +3,7 @@ import { Button } from "@/app/components/ui/button";
 import { Download } from "lucide-react";
 import { toast } from "sonner";
 import ClipCardMetrics from "./ClipCardMetrics";
-import ClipCardTags from "./ClipCardTags";
+// import ClipCardTags from "./ClipCardTags";
 import downloadSegment from "@/lib/services/downloadSegment";
 import { SegmentType } from "@/types/segment";
 
@@ -39,12 +39,12 @@ const ClipCardContentSetion = ({ clip }: clipProps) => {
         <h3 className="font-bold text-white leading-tight line-clamp-2 group-hover:text-teal-400 transition-colors duration-300">
           {clip.filename}
         </h3>
-        <p className="text-slate-400 text-sm">
-          {/* {clip.description} */}
-          </p>
+        {/* <p className="text-slate-400 text-sm">
+          {clip.description} 
+        </p> */}
       </div>
-      <ClipCardTags  />
-      <ClipCardMetrics />
+      {/* <ClipCardTags  />*/}
+      <ClipCardMetrics /> 
       <Button
         onClick={handleDownload}
         disabled={isDownloading}

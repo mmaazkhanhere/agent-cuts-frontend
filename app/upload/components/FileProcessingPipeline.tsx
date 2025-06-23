@@ -21,7 +21,6 @@ enum UploadStatus {
 
 const FileProcessingPipeline = () => {
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
-  const [selectedCategory, setSelectedCategory] = useState<string>("");
   const [generatedClips, setGeneratedClips] = useState< SegmentType[]>([]);
   const fileInputRef = useRef<HTMLInputElement>(null);
   const [uniquePhrase, setUniquePhrase] = useState<string | null>(null);
@@ -88,7 +87,6 @@ const FileProcessingPipeline = () => {
   // Reset everything to initial state
   const resetUpload = () => {
     setSelectedFile(null);
-    setSelectedCategory("");
     setGeneratedClips([]);
     setUniquePhrase(null);
     setUploadStatus(UploadStatus.UPLOAD);
@@ -113,8 +111,6 @@ const FileProcessingPipeline = () => {
         return (
           <SelectedVideoPanel
             selectedFile={selectedFile}
-            selectedCategory={selectedCategory}
-            setSelectedCategory={setSelectedCategory}
             resetUpload={resetUpload}
             simulateUpload={startProcessing}
             isProcessing={false}
